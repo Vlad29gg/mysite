@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>My Socials</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            transition: background 0.5s ease;
+            background: radial-gradient(circle at center, #1e1e2f 0%, #0f0f1a 100%);
+            background-attachment: fixed;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-family: 'Inter', sans-serif;
+        }
+
+        .glass {
+            background: rgba(15, 15, 25, 0.7);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .social-btn {
+            position: relative;
+            overflow: hidden;
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+        }
+
+        .social-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
+            border-color: rgba(255,255,255,0.2);
+        }
+
+        /* Modal Styles */
+        .modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0,0,0,0.8);
+            z-index: 1000;
+            align-items: center;
+            justify-content: center;
+        }
+    </style>
+</head>
+<body class="text-white min-h-screen flex flex-col items-center justify-center p-4">
+
+    <button id="settingsBtn" class="fixed top-5 right-5 p-3 glass rounded-full hover:scale-110 transition">
+        ⚙️
+    </button>
+
+    <div class="max-w-md w-full text-center glass p-8 rounded-3xl" id="profileCard">
+        <div class="mb-6 relative inline-block">
+            <div class="w-32 h-32 rounded-full overflow-hidden border-4 border-yellow-500/30 shadow-lg mx-auto bg-gray-800">
+                <img id="avatarImage" src="https://api.dicebear.com/9.x/avataaars/svg?seed=Felix&mouth=smile&top=shortHair" alt="Avatar" class="w-full h-full object-cover">
+            </div>
+        </div>
+
+        <h1 class="text-3xl font-black mb-1 text-white uppercase tracking-wider" id="nameDisplay">Papachiz123</h1>
+        <p class="text-yellow-500 mb-8 font-light italic text-sm">Gamer / Streamer</p>
+        
+        <div class="flex flex-col gap-4">
+            <a id="twitchLink" href="https://twitch.tv/" class="social-btn bg-[#9146FF]/80 hover:bg-[#9146FF] p-4 rounded-xl font-bold text-lg flex items-center justify-center">My Twitch</a>
+            <a id="youtubeLink" href="https://youtube.com/" class="social-btn bg-[#FF0000]/80 hover:bg-[#FF0000] p-4 rounded-xl font-bold text-lg flex items-center justify-center">YouTube Channel</a>
+            <a id="instaLink" href="https://instagram.com/" class="social-btn bg-gradient-to-r from-purple-600 via-pink-600 to-orange-500/80 hover:to-orange-500 p-4 rounded-xl font-bold text-lg flex items-center justify-center">Instagram</a>
+            <a id="teleLink" href="https://t.me/" class="social-btn bg-[#0088cc]/80 hover:bg-[#0088cc] p-4 rounded-xl font-bold text-lg flex items-center justify-center">Telegram Chat</a>
+            <a id="discordLink" href="https://discord.gg/" class="social-btn bg-[#5865F2]/80 hover:bg-[#5865F2] p-4 rounded-xl font-bold text-lg flex items-center justify-center">Discord Server</a>
+        </div>
+        <p class="mt-8 text-gray-400 text-xs uppercase tracking-widest">© 2026 Game Community</p>
+    </div>
+
+    <div id="settingsModal" class="modal">
+        <div class="glass p-8 rounded-3xl w-full max-w-sm m-4 text-left">
+            <h2 class="text-2xl font-bold mb-4">Settings</h2>
+            <div class="space-y-4">
+                <div>
+                    <label class="block text-xs uppercase mb-1">Avatar</label>
+                    <input type="file" id="avatarUpload" accept="image/*" class="w-full bg-black/30 p-2 rounded text-sm">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase mb-1">Background Color</label>
+                    <input type="color" id="bgPicker" value="#1e1e2f" class="w-full h-10 rounded cursor-pointer">
+                </div>
+                <div>
+                    <label class="block text-xs uppercase mb-1">Links</label>
+                    <input type="text" id="twitchInput" placeholder="Twitch URL" class="w-full bg-black/30 p-2 rounded text-sm mb-2">
+                    <input type="text" id="youtubeInput" placeholder="YouTube URL" class="w-full bg-black/30 p-2 rounded text-sm mb-2">
+                    <input type="text" id="instaInput" placeholder="Instagram URL" class="w-full bg-black/30 p-2 rounded text-sm mb-2">
+                    <input type="text" id="teleInput" placeholder="Telegram URL" class="w-full bg-black/30 p-2 rounded text-sm mb-2">
+                    <input type="text" id="discordInput" placeholder="Discord URL" class="w-full bg-black/30 p-2 rounded text-sm">
+                </div>
+                <button id="closeSettings" class="w-full bg-yellow-600 hover:bg-yellow-500 p-3 rounded-xl font-bold mt-4">Save & Close</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const settingsBtn = document.getElementById('settingsBtn');
+        const settingsModal = document.getElementById('settingsModal');
+        const closeSettings = document.getElementById('closeSettings');
+        
+        settingsBtn.addEventListener('click', () => settingsModal.style.display = 'flex');
+        closeSettings.addEventListener('click', () => {
+            settingsModal.style.display = 'none';
+            
+            // Update Links
+            document.getElementById('twitchLink').href = document.getElementById('twitchInput').value || 'https://twitch.tv/';
+            document.getElementById('youtubeLink').href = document.getElementById('youtubeInput').value || 'https://youtube.com/';
+            document.getElementById('instaLink').href = document.getElementById('instaInput').value || 'https://instagram.com/';
+            document.getElementById('teleLink').href = document.getElementById('teleInput').value || 'https://t.me/';
+            document.getElementById('discordLink').href = document.getElementById('discordInput').value || 'https://discord.gg/';
+        });
+
+        // Background Color
+        document.getElementById('bgPicker').addEventListener('input', (e) => {
+            document.body.style.background = e.target.value;
+        });
+
+        // Avatar Upload
+        document.getElementById('avatarUpload').addEventListener('change', (e) => {
+            const file = e.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = (e) => {
+                    document.getElementById('avatarImage').src = e.target.result;
+                };
+                reader.readAsDataURL(file);
+            }
+        });
+    </script>
+</body>
+</html>
