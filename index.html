@@ -5,168 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Papachiz123 | Ultimate Hub</title>
     <script src="https://cdn.tailwindcss.com"></script>
-    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@400;900&family=Rajdhani:wght@300;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Monoton&family=Orbitron:wght@400;900&family=Rajdhani:wght@300;700&display=swap" display="swap" rel="stylesheet">
+    
     <style>
-        body {
-            background: #09090b;
-            font-family: 'Rajdhani', sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin: 0;
-            overflow: hidden;
-            position: relative;
-        }
-
-        .bg-layer {
-            position: absolute;
-            inset: -10%;
-            z-index: 0;
-            opacity: 0.1;
-            font-size: 3rem;
-            color: #d946ef;
-            pointer-events: none;
-            display: grid;
-            grid-template-columns: repeat(10, 1fr);
-            gap: 40px;
-            animation: drift 30s linear infinite;
-        }
-
-        @keyframes drift {
-            0% { transform: rotate(-2deg) translate(-5%, -5%); }
-            50% { transform: rotate(2deg) translate(5%, 5%); }
-            100% { transform: rotate(-2deg) translate(-5%, -5%); }
-        }
-
-        .card {
-            position: relative;
-            z-index: 10;
-            background: rgba(18, 18, 20, 0.7);
-            border: 2px solid #d946ef;
-            border-radius: 40px;
-            padding: 2.5rem;
-            width: 90%;
-            max-width: 450px;
-            backdrop-filter: blur(20px);
-            box-shadow: 0 0 60px rgba(217, 70, 239, 0.2);
-        }
-
-        .avatar-wrapper {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 1.5rem;
-            position: relative;
-        }
-
-        .avatar {
-            width: 100%;
-            height: 100%;
-            border-radius: 50%;
-            border: 6px solid #d946ef;
-            object-fit: cover;
-            transition: all 0.5s ease;
-            box-shadow: 0 0 30px rgba(217, 70, 239, 0.5);
-        }
-
-        .avatar:hover {
-            transform: scale(1.05) rotate(360deg);
-            border-color: #ffffff;
-        }
-
-        .nick-font {
-            font-family: 'Monoton', cursive;
-            letter-spacing: 0.1em;
-            text-shadow: 0 0 15px #d946ef, 0 0 30px #d946ef;
-        }
-
-        .link-btn {
-            background: linear-gradient(90deg, #18181b, #27272a);
-            border: 2px solid #d946ef;
-            color: white;
-            padding: 1rem;
-            border-radius: 20px;
-            text-align: center;
-            font-size: 1rem;
-            font-weight: 700;
-            letter-spacing: 0.1em;
-            transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            cursor: pointer;
-            text-decoration: none;
-            display: block;
-            text-transform: uppercase;
-        }
-
-        .link-btn:hover {
-            transform: scale(1.05);
-            background: #d946ef;
-            color: black;
-            box-shadow: 0 0 20px #d946ef;
-        }
-
-        .link-btn:active {
-            transform: scale(0.95);
-        }
+        body { background: #09090b; font-family: 'Rajdhani', sans-serif; min-height: 100vh; display: flex; align-items: center; justify-content: center; margin: 0; overflow: hidden; position: relative; }
+        .bg-layer { position: absolute; inset: -10%; z-index: 0; opacity: 0.3; font-size: 3rem; color: #d946ef; pointer-events: none; display: grid; grid-template-columns: repeat(10, 1fr); gap: 40px; animation: drift 30s linear infinite; }
+        @keyframes drift { 0% { transform: rotate(-2deg) translate(-5%, -5%); } 50% { transform: rotate(2deg) translate(5%, 5%); } 100% { transform: rotate(-2deg) translate(-5%, -5%); } }
+        .card { position: relative; z-index: 10; background: rgba(18, 18, 20, 0.7); border: 2px solid #d946ef; border-radius: 40px; padding: 2.5rem; width: 90%; max-width: 450px; backdrop-filter: blur(20px); box-shadow: 0 0 60px rgba(217, 70, 239, 0.2); }
+        .avatar-wrapper { width: 180px; height: 180px; margin: 0 auto 1.5rem; position: relative; }
+        .avatar { width: 100%; height: 100%; border-radius: 50%; border: 6px solid #d946ef; object-fit: cover; transition: all 0.5s ease; box-shadow: 0 0 30px rgba(217, 70, 239, 0.5); }
+        .avatar:hover { transform: scale(1.05) rotate(360deg); border-color: #ffffff; }
+        .nick-font { font-family: 'Monoton', cursive; letter-spacing: 0.1em; text-shadow: 0 0 15px #d946ef, 0 0 30px #d946ef; }
+        .link-btn { background: linear-gradient(90deg, #18181b, #27272a); border: 2px solid #d946ef; color: white; padding: 1rem; border-radius: 20px; text-align: center; font-size: 1rem; font-weight: 700; letter-spacing: 0.1em; transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; text-transform: uppercase; }
+        .link-btn:hover { transform: scale(1.05); background: #d946ef; color: black; box-shadow: 0 0 20px #d946ef; }
+        .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 2s infinite; }
+        @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
     </style>
 </head>
 <body>
-
     <div class="bg-layer" id="bg-layer"></div>
-
     <div class="card text-center">
         <div class="avatar-wrapper">
-            <img src="https://i.postimg.cc/PqHL0s5m/Chat-GPT-Image-24-maa-2026-g-14-33-59.png" class="avatar" alt="Папачиз">
+            <img src="https://i.imgur.com/f9G8v5N.png" class="avatar" alt="Папачиз">
+        </div>
+        <h1 class="nick-font text-3xl text-white mb-6 uppercase">PAPACHIZ123</h1>
+        <div class="space-y-4">
+            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> TELEGRAM</a>
+            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> TWITCH</a>
+            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> TIKTOK</a>
+            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> DISCORD</a>
+            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> YOUTUBE</a>
         </div>
         
-        <h1 class="nick-font text-3xl text-white mb-6 uppercase">PAPACHIZ123</h1>
-        
-        <div class="space-y-4">
-            <!-- Вставьте свои ссылки вместо # -->
-            <a href="https://t.me/mrxfrx" target="_blank" class="link-btn btn-audio">TELEGRAM</a>
-            <a href="https://www.twitch.tv/papachiz18" target="_blank" class="link-btn btn-audio">TWITCH</a>
-            <a href="https://www.tiktok.com/@mtrxhg?is_from_webapp=1&sender_device=pc" target="_blank" class="link-btn btn-audio">TIKTOK</a>
-            <a href="https://discord.gg/BwqkTHgWc" target="_blank" class="link-btn btn-audio">DISCORD</a>
-            <a href="https://www.youtube.com/@Papachiz123" target="_blank" class="link-btn btn-audio">YOUTUBE</a>
+        <div class="mt-8 text-gray-400 text-sm font-bold uppercase tracking-widest">
+            Обновлено: 26.05.2026 | Просмотров: 
+            <!-- Вставь сюда свой код StatCounter --><!-- Default Statcounter code for Papachiz123 https://vlad29gg.github.io/mysite/
+-->
+<script type="text/javascript">
+var sc_project=13256195; 
+var sc_invisible=0; 
+var sc_security="c7acf029"; 
+var scJsHost = "https://";
+document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+"statcounter.com/counter/counter.js'></"+"script>");
+</script>
+<noscript><div class="statcounter"><a title="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img class="statcounter"
+src="https://c.statcounter.com/13256195/0/c7acf029/0/" alt="Web Analytics"
+referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+<!-- End of Statcounter Code -->
         </div>
     </div>
-
     <script>
         const bg = document.getElementById('bg-layer');
-        const symbols = ["{ }", "< >", "DEV", "PLAY", "CODE", "LIVE", "404", "SYS", "BUG", "PWR", "0101"];
+        const symbols = ["{ }", "</>", "🎮", "🕹️", "LIVE", "PWR", "BUG", "0101", "⌨️", "🚀"];
         for(let i=0; i<40; i++) {
             const div = document.createElement('div');
             div.textContent = symbols[Math.floor(Math.random()*symbols.length)];
-            div.className = "flex items-center justify-center opacity-20 font-bold";
+            div.className = "flex items-center justify-center font-bold";
+            div.style.textShadow = "0 0 10px #d946ef, 0 0 20px #d946ef"; 
             bg.appendChild(div);
         }
-
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
-        
         function playSound(type) {
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             osc.connect(gain);
             gain.connect(audioCtx.destination);
-            
-            if (type === 'hover') {
-                osc.type = 'sine';
-                osc.frequency.setValueAtTime(600, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05);
-                gain.gain.setValueAtTime(0.02, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05);
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.05);
-            } else if (type === 'click') {
-                osc.type = 'square';
-                osc.frequency.setValueAtTime(150, audioCtx.currentTime);
-                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.1);
-                gain.gain.setValueAtTime(0.1, audioCtx.currentTime);
-                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1);
-                osc.start();
-                osc.stop(audioCtx.currentTime + 0.1);
-            }
+            if (type === 'hover') { osc.type = 'sine'; osc.frequency.setValueAtTime(600, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05); gain.gain.setValueAtTime(0.02, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05); osc.start(); osc.stop(audioCtx.currentTime + 0.05); } 
+            else if (type === 'click') { osc.type = 'square'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.1); gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1); osc.start(); osc.stop(audioCtx.currentTime + 0.1); }
         }
-
         document.querySelectorAll('.btn-audio').forEach(btn => {
             btn.addEventListener('mouseenter', () => playSound('hover'));
             btn.addEventListener('click', () => playSound('click'));
