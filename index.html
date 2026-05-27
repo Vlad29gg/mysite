@@ -13,22 +13,24 @@
         @media (min-width: 768px) { .bg-layer { grid-template-columns: repeat(10, 1fr); font-size: 3rem; } }
         @keyframes drift { 0% { transform: rotate(-2deg) translate(-5%, -5%); } 50% { transform: rotate(2deg) translate(5%, 5%); } 100% { transform: rotate(-2deg) translate(-5%, -5%); } }
         
-        /* Адаптивная карточка */
-        .card { position: relative; z-index: 10; background: rgba(18, 18, 20, 0.8); border: 2px solid #d946ef; border-radius: 30px; padding: 1.5rem; width: 92%; max-width: 450px; backdrop-filter: blur(15px); box-shadow: 0 0 40px rgba(217, 70, 239, 0.2); }
+        /* Адаптивная карточка с принудительной шириной для предотвращения падения контента */
+        .card { position: relative; z-index: 10; background: rgba(18, 18, 20, 0.8); border: 2px solid #d946ef; border-radius: 30px; padding: 1.5rem; width: 95%; max-width: 500px; backdrop-filter: blur(15px); box-shadow: 0 0 40px rgba(217, 70, 239, 0.2); display: flex; flex-direction: column; align-items: center; }
         @media (min-width: 640px) { .card { padding: 2.5rem; border-radius: 40px; } }
         
-        .avatar-wrapper { width: 140px; height: 140px; margin: 0 auto 1.5rem; position: relative; }
-        @media (min-width: 640px) { .avatar-wrapper { width: 180px; height: 180px; } }
+        .avatar-wrapper { width: 120px; height: 120px; margin-bottom: 1rem; position: relative; flex-shrink: 0; }
+        @media (min-width: 640px) { .avatar-wrapper { width: 150px; height: 150px; } }
         
         .avatar { width: 100%; height: 100%; border-radius: 50%; border: 4px solid #d946ef; object-fit: cover; transition: all 0.5s ease; box-shadow: 0 0 20px rgba(217, 70, 239, 0.4); }
-        .nick-font { font-family: 'Monoton', cursive; letter-spacing: 0.1em; text-shadow: 0 0 10px #d946ef; font-size: 1.5rem; }
-        @media (min-width: 640px) { .nick-font { font-size: 2.25rem; text-shadow: 0 0 15px #d946ef, 0 0 30px #d946ef; } }
+        .nick-font { font-family: 'Monoton', cursive; letter-spacing: 0.1em; text-shadow: 0 0 10px #d946ef; font-size: 1.25rem; margin-bottom: 1rem; }
+        @media (min-width: 640px) { .nick-font { font-size: 2rem; text-shadow: 0 0 15px #d946ef, 0 0 30px #d946ef; } }
         
-        .link-btn { background: linear-gradient(90deg, #18181b, #27272a); border: 2px solid #d946ef; color: white; padding: 0.8rem; border-radius: 16px; text-align: center; font-size: 0.9rem; font-weight: 700; transition: all 0.3s ease; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; text-transform: uppercase; -webkit-tap-highlight-color: transparent; }
-        @media (min-width: 640px) { .link-btn { padding: 1rem; border-radius: 20px; font-size: 1rem; } }
+        /* Улучшенная ширина кнопок */
+        .links-container { width: 100%; display: flex; flex-direction: column; gap: 0.75rem; }
+        .link-btn { background: linear-gradient(90deg, #18181b, #27272a); border: 2px solid #d946ef; color: white; padding: 0.75rem; border-radius: 16px; text-align: center; font-size: 0.85rem; font-weight: 700; transition: all 0.3s ease; cursor: pointer; text-decoration: none; display: flex; align-items: center; justify-content: center; gap: 10px; text-transform: uppercase; -webkit-tap-highlight-color: transparent; white-space: nowrap; }
+        @media (min-width: 640px) { .link-btn { padding: 0.9rem; border-radius: 20px; font-size: 0.95rem; } }
         .link-btn:hover { transform: scale(1.02); background: #d946ef; color: black; }
         
-        .status-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 6px #22c55e; }
+        .status-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 6px #22c55e; flex-shrink: 0; }
         .statcounter a { display: none !important; }
     </style>
 </head>
@@ -38,8 +40,8 @@
         <div class="avatar-wrapper">
             <img src="https://i.imgur.com/f9G8v5N.png" class="avatar" alt="Папачиз">
         </div>
-        <h1 class="nick-font text-white mb-6 uppercase">PAPACHIZ123</h1>
-        <div class="space-y-3">
+        <h1 class="nick-font text-white uppercase">PAPACHIZ123</h1>
+        <div class="links-container">
             <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> TELEGRAM</a>
             <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> TWITCH</a>
             <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> TIKTOK</a>
@@ -47,29 +49,13 @@
             <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> YOUTUBE</a>
         </div>
         
-        <div class="mt-6 text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest flex flex-col items-center gap-1">
-            <div>Просмотров:</div>
-            <div class="flex justify-center">
+        <div class="mt-6 text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest flex items-center gap-1">
+            <span>Просмотров:</span>
+            <div class="flex items-center">
                 <!-- СЮДА ВСТАВЛЯЙ КОД STATCOUNTER МЕЖДУ ЭТИМИ КОММЕНТАРИЯМИ -->
                 
-                <!-- Default Statcounter code for Papachiz123
-https://vlad29gg.github.io/mysite/ -->
-<script type="text/javascript">
-var sc_project=13256195; 
-var sc_invisible=0; 
-var sc_security="c7acf029"; 
-var scJsHost = "https://";
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="Web Analytics
-Made Easy - Statcounter" href="https://statcounter.com/"
-target="_blank"><img class="statcounter"
-src="https://c.statcounter.com/13256195/0/c7acf029/0/"
-alt="Web Analytics Made Easy - Statcounter"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
+                <!-- Код StatCounter -->
+                
                 <!-- КОНЕЦ ВСТАВКИ -->
             </div>
         </div>
@@ -97,7 +83,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
             } else if (type === 'click') { 
                 osc.type = 'square'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); 
                 osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.1); 
-                gain.gain.setValueAtTime(0.05, audioCtx.currentTime); 
+                gain.gain.setValueAtHoTime(0.05, audioCtx.currentTime); 
                 osc.start(); osc.stop(audioCtx.currentTime + 0.1); 
             }
         }
