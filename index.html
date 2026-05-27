@@ -20,6 +20,8 @@
         .link-btn:hover { transform: scale(1.05); background: #d946ef; color: black; box-shadow: 0 0 20px #d946ef; }
         .status-dot { width: 8px; height: 8px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 8px #22c55e; animation: pulse 2s infinite; }
         @keyframes pulse { 0% { transform: scale(1); opacity: 1; } 50% { transform: scale(1.5); opacity: 0.5; } 100% { transform: scale(1); opacity: 1; } }
+        /* Скрываем иконку счетчика, чтобы не ломала дизайн */
+        .statcounter a { display: none !important; }
     </style>
 </head>
 <body>
@@ -30,33 +32,44 @@
         </div>
         <h1 class="nick-font text-3xl text-white mb-6 uppercase">PAPACHIZ123</h1>
         <div class="space-y-4">
-            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> TELEGRAM</a>
-            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> TWITCH</a>
-            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> TIKTOK</a>
-            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> DISCORD</a>
-            <a href="#" target="_blank" class="link-btn btn-audio"><div class="status-dot"></div> YOUTUBE</a>
+            <!-- Звуки работают через класс .btn-audio -->
+            <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> TELEGRAM</a>
+            <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> TWITCH</a>
+            <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> TIKTOK</a>
+            <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> DISCORD</a>
+            <a href="#" class="link-btn btn-audio"><div class="status-dot"></div> YOUTUBE</a>
         </div>
         
-        <div class="mt-8 text-gray-400 text-sm font-bold uppercase tracking-widest">
-            Обновлено: 26.05.2026 | Просмотров: 
-            <!-- Вставь сюда свой код StatCounter --><!-- Default Statcounter code for Papachiz123 https://vlad29gg.github.io/mysite/
--->
+        <div class="mt-8 text-gray-400 text-sm font-bold uppercase tracking-widest flex flex-col items-center gap-2">
+            <div>Просмотров:</div>
+            <div class="flex justify-center">
+                <!-- СЮДА ВСТАВЛЯЙ КОД STATCOUNTER МЕЖДУ ЭТИМИ КОММЕНТАРИЯМИ -->
+                
+                <!-- Default Statcounter code for Papachiz123
+https://vlad29gg.github.io/mysite/ -->
 <script type="text/javascript">
 var sc_project=13256195; 
 var sc_invisible=0; 
 var sc_security="c7acf029"; 
 var scJsHost = "https://";
-document.write("<sc"+"ript type='text/javascript' src='" + scJsHost+
+document.write("<sc"+"ript type='text/javascript' src='" +
+scJsHost+
 "statcounter.com/counter/counter.js'></"+"script>");
 </script>
 <noscript><div class="statcounter"><a title="Web Analytics"
-href="https://statcounter.com/" target="_blank"><img class="statcounter"
-src="https://c.statcounter.com/13256195/0/c7acf029/0/" alt="Web Analytics"
+href="https://statcounter.com/" target="_blank"><img
+class="statcounter"
+src="https://c.statcounter.com/13256195/0/c7acf029/0/"
+alt="Web Analytics"
 referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
 <!-- End of Statcounter Code -->
+                
+                <!-- КОНЕЦ ВСТАВКИ -->
+            </div>
         </div>
     </div>
     <script>
+        // Анимация фона
         const bg = document.getElementById('bg-layer');
         const symbols = ["{ }", "</>", "🎮", "🕹️", "LIVE", "PWR", "BUG", "0101", "⌨️", "🚀"];
         for(let i=0; i<40; i++) {
@@ -66,14 +79,27 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
             div.style.textShadow = "0 0 10px #d946ef, 0 0 20px #d946ef"; 
             bg.appendChild(div);
         }
+
+        // Логика звуков для кнопок
         const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
         function playSound(type) {
             const osc = audioCtx.createOscillator();
             const gain = audioCtx.createGain();
             osc.connect(gain);
             gain.connect(audioCtx.destination);
-            if (type === 'hover') { osc.type = 'sine'; osc.frequency.setValueAtTime(600, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05); gain.gain.setValueAtTime(0.02, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05); osc.start(); osc.stop(audioCtx.currentTime + 0.05); } 
-            else if (type === 'click') { osc.type = 'square'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.1); gain.gain.setValueAtTime(0.1, audioCtx.currentTime); gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1); osc.start(); osc.stop(audioCtx.currentTime + 0.1); }
+            if (type === 'hover') { 
+                osc.type = 'sine'; osc.frequency.setValueAtTime(600, audioCtx.currentTime); 
+                osc.frequency.exponentialRampToValueAtTime(400, audioCtx.currentTime + 0.05); 
+                gain.gain.setValueAtTime(0.02, audioCtx.currentTime); 
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.05); 
+                osc.start(); osc.stop(audioCtx.currentTime + 0.05); 
+            } else if (type === 'click') { 
+                osc.type = 'square'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); 
+                osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.1); 
+                gain.gain.setValueAtTime(0.1, audioCtx.currentTime); 
+                gain.gain.exponentialRampToValueAtTime(0.001, audioCtx.currentTime + 0.1); 
+                osc.start(); osc.stop(audioCtx.currentTime + 0.1); 
+            }
         }
         document.querySelectorAll('.btn-audio').forEach(btn => {
             btn.addEventListener('mouseenter', () => playSound('hover'));
