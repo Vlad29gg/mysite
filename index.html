@@ -31,7 +31,9 @@
         .link-btn:hover { transform: scale(1.02); background: #d946ef; color: black; }
         
         .status-dot { width: 6px; height: 6px; background: #22c55e; border-radius: 50%; box-shadow: 0 0 6px #22c55e; flex-shrink: 0; }
-        .statcounter a { display: none !important; }
+        
+        /* Счетчик теперь отображается */
+        /* .statcounter a { display: none !important; } */
     </style>
 </head>
 <body>
@@ -52,26 +54,23 @@
         <div class="mt-6 text-gray-400 text-[10px] sm:text-xs font-bold uppercase tracking-widest flex items-center gap-1">
             <span>Просмотров:</span>
             <div class="flex items-center">
-                <!-- СЮДА ВСТАВЛЯЙ КОД STATCOUNTER МЕЖДУ ЭТИМИ КОММЕНТАРИЯМИ -->
-                <!-- Default Statcounter code for Papachiz123
-https://vlad29gg.github.io/mysite/ -->
-<script type="text/javascript">
-var sc_project=13256195; 
-var sc_invisible=0; 
-var sc_security="c7acf029"; 
-var scJsHost = "https://";
-document.write("<sc"+"ript type='text/javascript' src='" +
-scJsHost+
-"statcounter.com/counter/counter.js'></"+"script>");
-</script>
-<noscript><div class="statcounter"><a title="Web Analytics
-Made Easy - Statcounter" href="https://statcounter.com/"
-target="_blank"><img class="statcounter"
-src="https://c.statcounter.com/13256195/0/c7acf029/0/"
-alt="Web Analytics Made Easy - Statcounter"
-referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
-<!-- End of Statcounter Code -->
-                <!-- КОНЕЦ ВСТАВКИ -->
+                <!-- Код Statcounter -->
+                <script type="text/javascript">
+                    var sc_project=13256195; 
+                    var sc_invisible=0; 
+                    var sc_security="c7acf029"; 
+                    var scJsHost = "https://";
+                    document.write("<sc"+"ript type='text/javascript' src='" +
+                    scJsHost+
+                    "statcounter.com/counter/counter.js'></"+"script>");
+                </script>
+                <noscript><div class="statcounter"><a title="Web Analytics
+                Made Easy - Statcounter" href="https://statcounter.com/"
+                target="_blank"><img class="statcounter"
+                src="https://c.statcounter.com/13256195/0/c7acf029/0/"
+                alt="Web Analytics Made Easy - Statcounter"
+                referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
+                <!-- Конец кода Statcounter -->
             </div>
         </div>
     </div>
@@ -98,7 +97,7 @@ referrerPolicy="no-referrer-when-downgrade"></a></div></noscript>
             } else if (type === 'click') { 
                 osc.type = 'square'; osc.frequency.setValueAtTime(150, audioCtx.currentTime); 
                 osc.frequency.exponentialRampToValueAtTime(100, audioCtx.currentTime + 0.1); 
-                gain.gain.setValueAtHoTime(0.05, audioCtx.currentTime); 
+                gain.gain.setValueAtTime(0.05, audioCtx.currentTime); 
                 osc.start(); osc.stop(audioCtx.currentTime + 0.1); 
             }
         }
