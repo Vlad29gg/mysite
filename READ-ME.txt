@@ -1,0 +1,5 @@
+ВИЗИТКА
+GitHub → Vlad29gg/mysite → Add file → Upload files.
+Загрузи index.html, privacy.html, terms.html, legal.css и файлы иконок из этого архива рядом с прежним index.html. Сам ZIP не загружай. Нажми Commit changes.
+Адрес: https://vlad29gg.github.io/mysite/
+Кнопка «Написать мне» теперь открывает письмо на gaip7798@gmail.com. Соседняя кнопка копирует email. В правилах и конфиденциальности также заменён контакт. Дизайн, музыка и остальные ссылки сохранены. Переключатель языков добавлен к игре.

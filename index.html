@@ -135,7 +135,7 @@ html,body{width:100%;height:100%;min-height:0;overflow:hidden;overscroll-behavio
         <div class="avatar-wrapper"><img src="https://i.postimg.cc/PqHL0s5m/Chat-GPT-Image-24-maa-2026-g-14-33-59.png" class="avatar" alt="Папачиз" width="144" height="144" decoding="async"></div>
         <h1 id="profile-name">PAPACHIZ<span>123</span></h1>
         <p class="subtitle">На своей волне.</p>
-        <div class="profile-contact"><a class="personal-link" href="https://t.me/kxtssu" aria-label="Написать мне в Telegram: @kxtssu"><span class="contact-caption">Написать мне</span><strong>@kxtssu <span aria-hidden="true">↗</span></strong></a><button id="copy-nick" type="button" aria-label="Скопировать @kxtssu" title="Скопировать ник"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M15 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></svg></button><span class="copy-feedback" id="copy-feedback" role="status"></span></div>
+        <div class="profile-contact"><a class="personal-link" href="mailto:gaip7798@gmail.com" aria-label="Написать мне по электронной почте"><strong>Написать мне <span aria-hidden="true">↗</span></strong></a><button id="copy-nick" type="button" aria-label="Скопировать email" title="Скопировать email"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M15 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></svg></button><span class="copy-feedback" id="copy-feedback" role="status"></span></div>
       </header>
       <nav class="links-container" aria-label="Мои соцсети">
         <a href="https://t.me/mrxfrx" class="link-btn telegram"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m21 3-3.4 17-5.4-4-2.8 2.6.5-5L18 6 7.5 12.7 2 11z"/></svg></span><span class="link-label"><span class="link-name">Telegram</span><span class="link-detail">Мой канал · @mrxfrx</span></span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
@@ -434,19 +434,19 @@ var PLAYLIST = [
     var feedback = document.getElementById('copy-feedback');
     var feedbackTimer;
     function result(ok) {
-      feedback.textContent = ok ? 'Ник скопирован' : 'Ник для копирования: @kxtssu';
+      feedback.textContent = ok ? 'Email скопирован' : 'Email: gaip7798@gmail.com';
       clearTimeout(feedbackTimer);
       feedbackTimer = setTimeout(function () { feedback.textContent = ''; }, 3500);
     }
     function fallback() {
-      var input = document.createElement('textarea'); input.value = '@kxtssu';
+      var input = document.createElement('textarea'); input.value = 'gaip7798@gmail.com';
       input.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';
       document.body.appendChild(input); input.select();
       var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
       input.remove(); copy.focus(); result(ok);
     }
     copy.addEventListener('click', function () {
-      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText('@kxtssu').then(function () { result(true); }, fallback);
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText('gaip7798@gmail.com').then(function () { result(true); }, fallback);
       else fallback();
     });
     var card = document.querySelector('.card');
