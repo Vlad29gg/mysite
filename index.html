@@ -170,7 +170,7 @@ html,body{width:100%;height:100%;min-height:0;overflow:hidden;overscroll-behavio
     </div>
   </main>
   <div class="playlist-overlay" id="playlist-panel" role="dialog" aria-modal="true" aria-labelledby="playlist-title" hidden>
-    <div class="playlist-sheet"><div class="playlist-heading"><div class="playlist-intro"><span class="playlist-eyebrow">PAPACHIZ / MUSIC</span><h2 id="playlist-title">На моей волне</h2><p id="playlist-summary" class="playlist-summary">Треки из моего канала</p></div><button type="button" id="playlist-close" aria-label="Закрыть список">✕</button></div><div class="playlist-divider" aria-hidden="true"></div><ol id="track-list"></ol></div>
+    <div class="playlist-sheet"><div class="playlist-heading"><div class="playlist-intro"><span class="playlist-eyebrow">PAPACHIZ / MUSIC</span><h2 id="playlist-title">На моей волне</h2><p id="playlist-summary" class="playlist-summary">Треки из моего канала</p></div><button type="button" id="playlist-close" aria-label="Закрыть список">✕</button></div><div style="padding:12px 20px"><label for="music-order">Порядок воспроизведения </label><select id="music-order" style="max-width:100%;padding:10px;border-radius:12px;background:#241b38;color:#fff;border:1px solid #b994df"><option value="random">Случайно</option><option value="forward">По порядку</option><option value="reverse">В обратном порядке</option></select></div><div class="playlist-divider" aria-hidden="true"></div><ol id="track-list"></ol></div>
   </div>
   <script>
     // Audio is optional: unsupported or blocked audio must never stop navigation.
@@ -232,6 +232,16 @@ var PLAYLIST = [
   var play = document.getElementById('music-play');
   var prev = document.getElementById('music-prev');
   var next = document.getElementById('music-next');
+  var orderControl = document.getElementById('music-order');
+  var musicOrder = 'random';
+  try { var savedOrder = localStorage.getItem('papachiz.music.order'); if (['random','forward','reverse'].includes(savedOrder)) musicOrder = savedOrder; } catch (_) {}
+  orderControl.value = musicOrder;
+  orderControl.addEventListener('change', function () { musicOrder = orderControl.value; try { localStorage.setItem('papachiz.music.order', musicOrder); } catch (_) {} });
+  function orderedIndex(direction) {
+    if (tracks.length < 2) return 0;
+    if (musicOrder === 'random') return (index + 1 + Math.floor(Math.random() * (tracks.length - 1))) % tracks.length;
+    return index + direction * (musicOrder === 'reverse' ? -1 : 1);
+  }
   var seek = document.getElementById('music-seek');
   var cover = document.getElementById('music-cover');
   var title = document.getElementById('music-title');
@@ -382,8 +392,8 @@ var PLAYLIST = [
   cover.addEventListener('load', function () { cover.hidden = false; });
   cover.addEventListener('error', function () { cover.hidden = true; });
   play.addEventListener('click', function () { if (wanted) pause(); else start(); });
-  prev.addEventListener('click', function () { load(index - 1, wanted); });
-  next.addEventListener('click', function () { load(index + 1, wanted); });
+  prev.addEventListener('click', function () { load(orderedIndex(-1), wanted); });
+  next.addEventListener('click', function () { load(orderedIndex(1), wanted); });
   seek.addEventListener('input', function () {
     paintRange(seek);
     if (isFinite(audio.duration) && audio.duration > 0) {
@@ -398,7 +408,7 @@ var PLAYLIST = [
   audio.addEventListener('durationchange', progress);
   audio.addEventListener('error', function () { fail('Трек недоступен. Попробуй ещё раз или переключи его.'); });
   audio.addEventListener('ended', function () {
-    if (tracks.length > 1) load(index + 1, true);
+    if (tracks.length > 1) load(orderedIndex(1), true);
     else { wanted = false; playing(false); controls(); status.textContent = 'Трек завершён'; }
   });
   function ready() {
@@ -407,7 +417,7 @@ var PLAYLIST = [
     play.disabled = false; prev.disabled = next.disabled = tracks.length < 2;
     if (!initialTrackSelected) {
       initialTrackSelected = true;
-      load(Math.floor(Math.random() * tracks.length), true, true);
+      load(musicOrder === 'random' ? Math.floor(Math.random() * tracks.length) : musicOrder === 'reverse' ? tracks.length - 1 : 0, true, true);
     } else { load(0, false); }
   }
   ready();
