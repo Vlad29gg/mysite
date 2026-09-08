@@ -170,7 +170,7 @@ html,body{width:100%;height:100%;min-height:0;overflow:hidden;overscroll-behavio
     </div>
   </main>
   <div class="playlist-overlay" id="playlist-panel" role="dialog" aria-modal="true" aria-labelledby="playlist-title" hidden>
-    <div class="playlist-sheet"><div class="playlist-heading"><div class="playlist-intro"><span class="playlist-eyebrow">PAPACHIZ / MUSIC</span><h2 id="playlist-title">На моей волне</h2><p id="playlist-summary" class="playlist-summary">Треки из моего канала</p></div><button type="button" id="playlist-close" aria-label="Закрыть список">✕</button></div><div style="padding:12px 20px"><label for="music-order">Порядок воспроизведения </label><select id="music-order" style="max-width:100%;padding:10px;border-radius:12px;background:#241b38;color:#fff;border:1px solid #b994df"><option value="random">Случайно</option><option value="forward">По порядку</option><option value="reverse">В обратном порядке</option></select></div><div class="playlist-divider" aria-hidden="true"></div><ol id="track-list"></ol></div>
+    <div class="playlist-sheet"><div class="playlist-heading"><div class="playlist-intro"><span class="playlist-eyebrow">PAPACHIZ / MUSIC</span><h2 id="playlist-title">На моей волне</h2><p id="playlist-summary" class="playlist-summary">Треки из моего канала</p></div><button type="button" id="playlist-close" aria-label="Закрыть список">✕</button></div><div class="order-buttons"><button id="music-direction" type="button" aria-label="Обратный порядок" aria-pressed="false" title="Сверху вниз"><svg viewBox="0 0 24 24"><path d="M7 20V4m-4 4 4-4 4 4M17 4v16m-4-4 4 4 4-4"/></svg></button><button id="music-cycle" type="button" aria-label="По кругу; выключено — случайно" aria-pressed="false" title="Случайно"><svg viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 11V6h18M7 22l-4-4 4-4m14-1v5H3"/></svg></button></div><div class="playlist-divider" aria-hidden="true"></div><ol id="track-list"></ol></div>
   </div>
   <script>
     // Audio is optional: unsupported or blocked audio must never stop navigation.
@@ -232,11 +232,11 @@ var PLAYLIST = [
   var play = document.getElementById('music-play');
   var prev = document.getElementById('music-prev');
   var next = document.getElementById('music-next');
-  var orderControl = document.getElementById('music-order');
-  var musicOrder = 'random';
-  try { var savedOrder = localStorage.getItem('papachiz.music.order'); if (['random','forward','reverse'].includes(savedOrder)) musicOrder = savedOrder; } catch (_) {}
-  orderControl.value = musicOrder;
-  orderControl.addEventListener('change', function () { musicOrder = orderControl.value; try { localStorage.setItem('papachiz.music.order', musicOrder); } catch (_) {} });
+  var directionButton=document.getElementById('music-direction'),cycleButton=document.getElementById('music-cycle');
+  var reversed=false,cycling=false,musicOrder='random';
+  try{reversed=localStorage.getItem('papachiz.reverse')==='true';cycling=localStorage.getItem('papachiz.cycle')==='true';}catch(_){}
+  function updateOrder(){musicOrder=cycling?(reversed?'reverse':'forward'):'random';directionButton.setAttribute('aria-pressed',String(reversed));cycleButton.setAttribute('aria-pressed',String(cycling));directionButton.title=reversed?'Снизу вверх':'Сверху вниз';cycleButton.title=cycling?'По кругу':'Случайно';try{localStorage.setItem('papachiz.reverse',String(reversed));localStorage.setItem('papachiz.cycle',String(cycling));}catch(_){}}
+  directionButton.addEventListener('click',function(){reversed=!reversed;updateOrder();});cycleButton.addEventListener('click',function(){cycling=!cycling;updateOrder();});updateOrder();
   function orderedIndex(direction) {
     if (tracks.length < 2) return 0;
     if (musicOrder === 'random') return (index + 1 + Math.floor(Math.random() * (tracks.length - 1))) % tracks.length;
@@ -507,7 +507,7 @@ var PLAYLIST = [
  <div class="lg-stats"><span>Очки <strong id="lg-score">0</strong></span><span>Рекорд <strong id="lg-best">0</strong></span><strong id="lg-time">60 с</strong></div>
  <div class="lg-meter" role="progressbar" aria-label="Запас света" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span></span></div>
  <div class="lg-arena"><div class="lg-overlay"><h3>Не дай свету погаснуть</h3><p>Лови огоньки мышкой или пальцем. Пропущенный огонёк отнимает свет. Продержись 60 секунд.</p><button id="lg-start" class="lg-primary">Начать</button></div></div>
- <div class="lg-foot"><span>Один огонёк — 10 очков</span><button id="lg-pause" class="lg-control" disabled>Пауза</button></div></div>
+ <section class="lg-leaders" aria-label="Три лучших игрока"><div class="lg-rank-heading">ТОП-3 <span>Есть место для твоего рекорда</span></div><ol id="lg-top"><li>Загружаем рекорды…</li></ol></section><form id="lg-submit" hidden><input id="lg-name" aria-label="Твой ник" placeholder="Твой ник" minlength="2" maxlength="20" required><button class="lg-primary">В топ-3</button></form><p id="lg-network" role="status"></p><div class="lg-foot"><span>Один огонёк — 10 очков</span><button id="lg-pause" class="lg-control" disabled>Пауза</button></div></div>
 </dialog>
 <script src="./light-game.js"></script>
 </body>
