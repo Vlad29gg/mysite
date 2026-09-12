@@ -3,13 +3,15 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-  <meta name="theme-color" content="#151024">
+  <meta name="theme-color" content="#0b111c">
   <meta name="description" content="Papachiz123 — Telegram, Twitch, TikTok, Discord и YouTube. Все мои соцсети в одном месте.">
   <title>PAPACHIZ123 · На моей волне</title>
-  <link rel="icon" href="favicon.ico?v=2" sizes="16x16 32x32 48x48">
-  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=2" sizes="any">
-  <link rel="apple-touch-icon" href="apple-touch-icon.png?v=2" sizes="180x180">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg?v=3" sizes="any">
   <meta name="apple-mobile-web-app-title" content="PAPACHIZ">
+  <script>
+// Вставь свою ссылку Instagram между кавычками. Например: https://www.instagram.com/your_name/
+window.PAPACHIZ_CONFIG = { instagramUrl: "https://www.instagram.com/vladik_19v?stkn=ZXJlejFodmFlZXVs" };
+  </script>
   <style>
 *{box-sizing:border-box}html{font-size:100%;-webkit-text-size-adjust:100%;color-scheme:dark}body{margin:0;min-width:0;background:#090815;color:#f7f4ff;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Arial,sans-serif;line-height:1.5}button,input,a{-webkit-tap-highlight-color:transparent}button,input{font:inherit}button{cursor:pointer}svg{display:block;width:24px;height:24px;fill:currentColor;flex-shrink:0}[hidden]{display:none!important}a{color:inherit}button:focus-visible,a:focus-visible,input:focus-visible{outline:3px solid #a9eaff;outline-offset:4px}button:disabled,input:disabled{opacity:.4;cursor:default}
 .scene{position:fixed;inset:0;overflow:hidden;pointer-events:none;background:radial-gradient(ellipse at 4% 15%,#5a19a277,transparent 52%),radial-gradient(ellipse at 92% 75%,#075acc66,transparent 52%),#090815}.scene::before{content:"";position:absolute;inset:-15%;background:radial-gradient(ellipse at 30% 40%,#b12bfe40,transparent 38%),radial-gradient(ellipse at 65% 80%,#e337b62b,transparent 35%);animation:ambient-drift 18s ease-in-out infinite alternate}.scene::after{content:"";position:absolute;inset:0;background:linear-gradient(115deg,transparent 45%,#9470ff0b 48%,transparent 52%)}.ambient-grid{position:absolute;inset:0;opacity:.16;background-image:linear-gradient(#a797db33 1px,transparent 1px),linear-gradient(90deg,#a797db33 1px,transparent 1px);background-size:80px 80px;mask-image:radial-gradient(ellipse,#000,transparent 75%)}.ambient-orbit{position:absolute;top:50%;left:50%;width:110vw;height:72vh;border:1px solid #bb9aff40;border-radius:50%;transform:translate(-50%,-50%) rotate(-26deg);box-shadow:0 0 70px #8848f01a,inset 0 0 70px #8848f01a}.ambient-orbit::before{content:"";position:absolute;inset:35px -50px;border:1px solid #7bc4ff22;border-radius:50%}.backdrop-type{position:absolute;top:2%;left:-2%;font-size:clamp(90px,18vw,300px);font-weight:900;line-height:1;letter-spacing:-.08em;color:#bb8ce80a;transform:rotate(-13deg)}.backdrop-type span{margin-left:28vw;color:transparent;-webkit-text-stroke:1px #bd9cff1a}.code-marks,.ambient-floor,.ambient-points{display:none}.star-field{position:absolute;inset:0;background-image:radial-gradient(circle,#c1a0ff88 1px,transparent 1.5px);background-size:193px 211px;opacity:.32}
@@ -122,26 +124,49 @@ html,body{width:100%;height:100%;min-height:0;overflow:hidden;overscroll-behavio
 .my-game{--accent:#d5f699;--tint:#a5d65f19}
 @media(max-width:640px) and (max-height:740px){.links-container .link-btn:last-child{grid-column:auto}}
 @media(min-width:641px) and (max-height:460px){.links-container .link-btn:last-child{grid-column:auto}}
-  </style>
-<link rel="stylesheet" href="./legal.css"><link rel="stylesheet" href="./light-game.css">
-<style>
-@media(max-width:640px){
-.stage{gap:7px}.card{padding:12px;gap:10px}.profile{display:grid;grid-template-columns:58px minmax(0,1fr);align-items:center;gap:4px 12px;padding:0 0 10px;text-align:left}.avatar-wrapper{grid-column:1;grid-row:1/4;width:54px;height:54px;margin:0;padding:3px}.avatar-wrapper::before,.avatar-wrapper::after{display:none}#profile-name{grid-column:2;font-size:23px;white-space:nowrap}.subtitle{display:none}.profile-contact{grid-column:2;margin:0}.personal-link{min-height:40px;padding:5px 9px}.mini-launch{grid-column:2;margin:2px 0 0;min-height:40px;justify-self:start;padding:8px 12px}.links-container{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:8px}.link-btn{min-height:58px;padding:9px 10px;gap:9px}.link-name{font-size:17px;line-height:1.2}.link-detail{display:none}.links-container .arrow{display:none}.icon{width:32px;height:32px;flex-shrink:0}.icon svg{width:23px;height:23px}.link-btn:last-child{grid-column:1/-1}.music-player{padding:9px 12px 7px}.legal-links{margin:0}.stage-footer{display:none}
-@media(max-width:360px){.link-name{font-size:16px}.link-btn{padding:8px;gap:6px}.card{padding:10px}}
-</style></head>
+  /* PAPACHIZ — midnight listening room. Responsive panels, no page scaling. */
+:root{--ink:#f5f6fa;--muted:#a6afc1;--line:#ffffff16;--surface:#151c2a;--coral:#ffb18c;--ice:#97d9ed;--accent:#ffb18c}
+html,body{height:100%;width:100%;overflow:hidden;background:#0b111c;color:var(--ink)}
+body{font-family:Inter,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;line-height:1.5}
+button,select,input{font:inherit}button,a,input,select{touch-action:manipulation}button:focus-visible,a:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--ice);outline-offset:3px}
+.scene{background:radial-gradient(ellipse at 10% 0%,#25485d55,transparent 50%),radial-gradient(ellipse at 95% 90%,#794d362c,transparent 45%),#0b111c}.scene::before,.scene::after,.ambient-orbit,.backdrop-type,.star-field{display:none}.ambient-grid{opacity:.035;background-size:60px 60px;mask-image:none}
+.page{height:100dvh;padding:max(16px,env(safe-area-inset-top)) max(20px,env(safe-area-inset-right)) max(16px,env(safe-area-inset-bottom)) max(20px,env(safe-area-inset-left));overflow:hidden}
+.stage{height:min(820px,100%);max-width:1220px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:18px;transform:none!important;min-height:0;flex-shrink:1}
+.site-topline{display:flex;justify-content:space-between;align-items:center;gap:12px;min-height:48px;padding:0 5px}.wordmark{font-size:15px;font-weight:800;letter-spacing:.12em;color:#eef3f9}.wordmark span{color:#91a0b4;font-weight:400;font-size:14px;letter-spacing:0;margin-left:15px}
+.site-tabs{display:flex;align-items:center;padding:4px;border:1px solid var(--line);background:#ffffff04;border-radius:14px;gap:3px}.site-tabs button{border:0;border-radius:10px;min-height:40px;padding:0 22px;background:transparent;color:var(--muted);font-size:14px;font-weight:650}.site-tabs button[aria-selected=true]{background:#293243;color:#fff;box-shadow:0 3px 8px #0002}.site-tabs button:hover{color:white}
+.card-frame{padding:0;border-radius:26px;background:none;border:0;box-shadow:none;min-height:0;height:100%}.card{height:100%;padding:clamp(20px,3.4vh,40px);gap:clamp(20px,3vw,42px);border:1px solid var(--line);border-radius:26px;background:linear-gradient(115deg,#182332,#131b28 60%);box-shadow:0 20px 65px #0003;overflow:hidden;grid-template-columns:minmax(220px,.86fr) minmax(0,1.25fr)}
+.card-light{background:radial-gradient(380px circle at var(--spot-x) var(--spot-y),#aacfee09,transparent 85%)}.profile{padding:10px 24px 10px 0;border-right:1px solid var(--line);border-bottom:0;align-items:flex-start;text-align:left;justify-content:center}.profile::before{display:none}.eyebrow{display:block;background:none;border:0;border-radius:0;padding:0;margin:0 0 26px;font-size:12px;letter-spacing:.06em;color:var(--muted)}.avatar-wrapper{width:clamp(74px,13vh,126px);height:clamp(74px,13vh,126px);margin:0 0 24px;padding:5px;border:1px solid #bddce82c;border-radius:28px;background:linear-gradient(145deg,#45667d,#233547);box-shadow:0 12px 32px #0003}.avatar-wrapper::before,.avatar-wrapper::after{display:none}.avatar{border-radius:22px}.avatar-wrapper.avatar-missing{display:grid;place-items:center}.avatar-wrapper.avatar-missing::after{display:block;content:'P';position:static;border:0;color:var(--ice);font-size:45px;font-weight:800}
+#profile-name{font-size:clamp(25px,3vw,39px);font-weight:800;letter-spacing:-.055em;line-height:1.2;text-shadow:none;white-space:nowrap}#profile-name span{background:none;-webkit-text-fill-color:var(--coral);color:var(--coral);font-size:inherit;letter-spacing:inherit}.subtitle{margin:12px 0 0;font-size:16px;color:#b6c0cf;max-width:280px}.profile-contact{margin-top:28px;gap:7px}.personal-link,#copy-nick{border-color:#ffffff20;background:#ffffff04;border-radius:12px}.personal-link{min-height:48px;padding:7px 13px}.contact-caption{color:var(--muted)}.personal-link strong span,#copy-nick{color:var(--ice)}#copy-nick{width:48px}.copy-feedback{background:#273a4a;color:white}
+.links-container{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));align-content:center;gap:12px}.links-container .link-btn,.links-container .link-btn:last-child{grid-column:auto;min-width:0;min-height:76px;padding:14px;gap:12px;border-radius:16px;border:1px solid var(--line);background:#ffffff03;text-align:left;position:relative;box-shadow:none}.links-container .link-btn:hover{background:#ffffff08;transform:translateY(-2px);border-color:#ffffff35}.links-container .link-btn:active{transform:scale(.98)}.icon{width:38px;height:38px;background:var(--tint);border:0;border-radius:12px}.link-name{font-size:15px;color:#f2f4fa;font-weight:650}.link-detail{font-size:13px;color:#99a7bb;line-height:1.4;margin-top:4px}.links-container .arrow{display:none}.instagram{--accent:#f0a6ba;--tint:#da6c9c16}.arcade-link{--accent:var(--coral);--tint:#ffb18c15}.link-btn[aria-disabled=true]{opacity:.65;cursor:default}.link-btn[aria-disabled=true]:hover{transform:none}
+.music-player{margin:0;padding:16px 22px 10px;border:1px solid var(--line);border-radius:22px;background:linear-gradient(110deg,#1b2938,#19202e);box-shadow:0 10px 35px #0002;grid-template-columns:minmax(0,1fr) auto minmax(0,1fr);gap:3px 18px}.music-player::before{display:none}.music-identity{grid-column:1;grid-row:1;gap:12px}.track-disc{height:48px;width:48px;border-radius:50%;background:linear-gradient(145deg,#346c83,#8a604b);border-color:#ffffff26;box-shadow:none}.disc-fallback{font-size:24px}.track-disc img{border-radius:50%}.music-kicker{font-size:12px;letter-spacing:.05em;color:var(--muted)}.track-text h2{font-size:15px}.track-text p{font-size:13px;color:#a0afc0}.transport{grid-column:2;grid-row:1;gap:5px;margin:0}.music-button{width:44px;height:44px;color:#c1cedd}.play-button{width:50px;height:50px;background:var(--coral);color:#28222a;border:0;box-shadow:0 4px 16px #ffb18c15}.play-button:not(:disabled):hover{background:#ffc6ac}.music-options{grid-column:3;grid-row:1;gap:8px;margin:0;padding:0;border:0;justify-content:flex-end}.music-options #playlist-open{order:3;margin:0}.music-options #music-mute{order:0;color:#c1cedd}.music-options input{order:1;width:76px;max-width:100px;flex:0 1 76px}.music-options button{background:#ffffff04;border-color:var(--line);color:#cbd6e2;min-width:44px}.music-timeline{grid-column:1/-1;grid-row:2;gap:12px;color:var(--muted)}.music-status{grid-row:3;font-size:12px;color:#9daec1;min-height:18px}.music-player input[type=range]{--range-left:#ffb18c;--range-right:#ffd1ba}.music-player #music-volume{--range-left:#97d9ed;--range-right:#97d9ed}.music-player input[type=range]::-webkit-slider-thumb{border-color:#ffdfcd;background:var(--coral);box-shadow:none}.music-player input[type=range]::-moz-range-thumb{border-color:#ffdfcd;background:var(--coral);box-shadow:none}.stage-footer{display:none}
+.playlist-overlay{background:#080e1de6}.playlist-sheet{border-color:var(--line);background:#162131;border-radius:24px}.playlist-eyebrow,.playlist-summary,.track-choice .track-artist{color:var(--muted)}.playlist-divider{background:var(--line)}.track-choice{border-color:var(--line);background:#ffffff03}.track-choice[aria-current=true]{border-color:#ffb18c66;background:#ffb18c0d}.track-number,.track-length{color:#aab7c9}.playlist-heading button{background:#ffffff07;border-color:var(--line)}
+/* The game shares the viewport with the original player. */
+.game-panel{min-height:0;height:100%;display:grid;grid-template-rows:auto minmax(0,1fr) auto;border:1px solid var(--line);border-radius:26px;overflow:hidden;background:#101a28;position:relative}.game-top{padding:15px 22px;display:flex;align-items:center;justify-content:space-between;gap:14px;border-bottom:1px solid var(--line)}.game-title{margin:0;font-size:18px;font-weight:750;letter-spacing:-.03em}.game-title span{color:var(--coral)}.game-meta{font-size:12px;color:var(--muted);margin:0}.game-stats{display:flex;align-items:center;gap:22px;white-space:nowrap}.game-stats div{display:grid;gap:0}.game-stats small{font-size:12px;color:var(--muted)}.game-stats strong{font:650 19px/1.4 ui-monospace,SFMono-Regular,Consolas,monospace;font-variant-numeric:tabular-nums}
+.game-arena{position:relative;min-height:0;overflow:hidden;background:radial-gradient(ellipse at 50% 50%,#1a354440,transparent 70%),#101a28;touch-action:none}.game-arena canvas{display:block;width:100%;height:100%;touch-action:none}.game-center{position:absolute;inset:0;display:flex;flex-direction:column;align-items:center;justify-content:center;gap:14px;padding:20px;text-align:center;background:#111b29f0}.game-center h3{font-size:clamp(22px,3vw,34px);line-height:1.15;letter-spacing:-.035em;margin:0}.game-center p{margin:0;max-width:460px;font-size:14px;color:#aab9ca}.mode-select{display:flex;padding:4px;border:1px solid var(--line);border-radius:13px;background:#0c1522;gap:3px}.mode-select button{min-height:42px;padding:0 20px;border:0;border-radius:9px;color:#b3bfd0;background:none;font-size:14px}.mode-select button[aria-pressed=true]{background:#2a3b4b;color:#fff}.song-field{display:grid;gap:7px;text-align:left;width:min(420px,100%);font-size:13px;color:var(--muted)}.song-field select{height:44px;width:100%;min-width:0;padding:0 12px;border-radius:11px;border:1px solid #ffffff25;color:white;background:#1e2e40;font-size:14px}.game-primary{min-height:46px;padding:0 28px;border:0;border-radius:12px;background:var(--coral);color:#292128;font-size:15px;font-weight:750;box-shadow:0 6px 22px #ffb18c10}.game-primary:hover{background:#ffd0b8}.game-secondary{min-height:44px;padding:0 17px;border:1px solid #ffffff25;border-radius:11px;background:#ffffff05;color:#d6e1eb;font-size:14px}.game-actions{display:flex;gap:10px;justify-content:center}.game-bottom{padding:9px 20px;display:flex;align-items:center;justify-content:space-between;gap:12px;border-top:1px solid var(--line);min-height:60px}.game-hint{font-size:13px;color:var(--muted);margin:0;min-width:0}.game-bottom-controls{display:flex;gap:8px;align-items:center;flex-shrink:0}.effects-control{font-size:13px;color:var(--muted);display:flex;align-items:center;gap:6px;min-height:44px;cursor:pointer}.effects-control input{accent-color:var(--coral);height:17px;width:17px}.game-message{font-size:14px;color:#b8dce8;min-height:20px}.game-tap{position:absolute;bottom:18px;left:50%;transform:translateX(-50%);min-width:150px;background:#ffb18c;border:0;border-radius:14px;padding:12px 24px;color:#282028;font-weight:750;font-size:15px;touch-action:manipulation}.game-tap:active{background:#ffd8c1}.game-calibrate{display:flex;align-items:center;gap:7px;font-size:12px;color:#aab8ca}.game-calibrate input{width:70px;min-height:40px;border:1px solid var(--line);border-radius:8px;background:#1d2d40;color:white;padding:6px;font-size:14px}.game-center .game-calibrate{justify-content:center}.game-open .music-player{opacity:.9}.result-details{font-size:14px;color:#acbcd0}.sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip-path:inset(50%);white-space:nowrap}.instagram-message{position:fixed;bottom:20px;left:50%;transform:translateX(-50%);z-index:200;padding:12px 18px;background:#283a4a;border:1px solid var(--line);border-radius:12px;color:#f6f7fb;font-size:14px;max-width:90vw}
+@media(max-width:900px){.card{grid-template-columns:minmax(180px,.8fr) minmax(0,1.2fr);padding:24px;gap:24px}.links-container{gap:9px}.links-container .link-btn{padding:10px;min-height:70px;gap:9px}.link-detail{font-size:12px}.icon{width:32px;height:32px}.icon svg{width:21px;height:21px}.music-options input{max-width:55px;width:55px;flex-basis:55px}.music-player{padding:12px 15px 8px;gap:3px 10px}.music-options #playlist-open{font-size:13px;padding:0 9px}.profile{padding-right:20px}#profile-name{font-size:27px}}
+@media(max-width:640px){.page{padding:max(8px,env(safe-area-inset-top)) max(10px,env(safe-area-inset-right)) max(8px,env(safe-area-inset-bottom)) max(10px,env(safe-area-inset-left))}.stage{max-width:500px;height:100%;gap:10px}.site-topline{min-height:42px;padding:0 2px}.wordmark{font-size:12px;letter-spacing:.07em}.wordmark span{display:none}.site-tabs{padding:3px;border-radius:12px}.site-tabs button{min-height:36px;padding:0 13px;font-size:13px}.card-frame,.card{border-radius:20px}.card{display:grid;grid-template-columns:minmax(0,1fr);grid-template-rows:auto minmax(0,1fr);padding:16px;gap:16px}.profile{display:grid;grid-template-columns:64px minmax(0,1fr);grid-template-rows:auto auto auto;gap:3px 16px;padding:0 0 15px;border:0;border-bottom:1px solid var(--line);align-items:center;text-align:left}.eyebrow{display:none}.avatar-wrapper{width:62px;height:62px;grid-column:1;grid-row:1/4;margin:0;border-radius:20px;padding:3px}.avatar{border-radius:16px}#profile-name{grid-column:2;font-size:24px}.subtitle{grid-column:2;font-size:13px;margin:0}.profile-contact{grid-column:2;margin:5px 0 0;gap:6px}.personal-link{min-height:36px;padding:4px 9px}.personal-link strong{font-size:13px}#copy-nick{width:36px;min-height:36px}.contact-caption{display:none}.links-container{grid-template-columns:repeat(2,minmax(0,1fr));grid-template-rows:repeat(4,minmax(44px,1fr));gap:8px;align-content:stretch;min-height:0}.links-container .link-btn,.links-container .link-btn:last-child{padding:9px;min-height:44px;gap:8px;border-radius:12px}.icon{width:32px;height:32px;border-radius:9px}.link-name{font-size:14px}.link-detail{font-size:12px;line-height:1.25;margin-top:3px}.music-player{grid-template-columns:minmax(0,1fr) auto;gap:0 9px;padding:10px 12px 6px;border-radius:18px}.music-identity{grid-column:1;grid-row:1;gap:8px}.track-disc{width:36px;height:36px}.track-text h2{font-size:14px}.track-text p{font-size:12px}.music-kicker{display:none}.transport{grid-column:2;grid-row:1;gap:0}.music-button,.play-button{height:42px;width:42px}.music-timeline{grid-row:2}.music-options{grid-row:3;grid-column:1/-1;justify-content:flex-end;padding:0}.music-options #playlist-open{order:0;margin-right:auto;min-height:40px;height:40px}.music-options #music-mute{order:1;height:40px}.music-options input{order:2;width:100px;max-width:110px;flex-basis:100px}.music-status{grid-row:4;font-size:12px;min-height:18px}.game-panel{border-radius:20px}.game-top{padding:10px 13px;gap:8px}.game-title{font-size:16px}.game-meta{display:none}.game-stats{gap:12px}.game-stats strong{font-size:16px}.game-stats small{font-size:12px}.game-bottom{padding:7px 10px;gap:8px;min-height:54px}.game-hint{font-size:12px}.game-secondary{padding:0 11px;font-size:13px;min-height:40px}.effects-control{font-size:12px}.game-center{padding:14px;gap:11px}.game-center h3{font-size:25px}.game-center p{font-size:13px}.game-tap{bottom:12px;padding:10px 22px;min-height:44px}.game-calibrate{font-size:12px}.game-open .music-timeline,.game-open .music-options,.game-open .music-status{display:none}.game-open .music-player{padding:8px 12px}.game-open .music-identity::after{content:none}}
+@media(max-width:640px) and (max-height:700px){.stage{gap:7px}.card{padding:12px;gap:10px}.profile{grid-template-columns:48px minmax(0,1fr);gap:1px 12px;padding-bottom:10px}.avatar-wrapper{width:46px;height:46px;border-radius:15px}.avatar{border-radius:11px}#profile-name{font-size:22px}.subtitle{display:none}.profile-contact{margin-top:4px}.links-container{gap:6px;grid-template-rows:repeat(4,minmax(44px,1fr))}.links-container .link-btn{padding:6px 8px}.link-detail{display:none}.music-status{min-height:16px}.music-player{padding-top:7px}.game-center{gap:8px}.game-center h3{font-size:22px}.game-center p{font-size:12px}.game-message{font-size:12px;min-height:17px}}
+@media(max-width:360px){.card{padding:10px}.icon{height:26px;width:26px}.icon svg{height:19px;width:19px}.links-container .link-btn{gap:6px;padding:6px}.link-name{font-size:13px}.track-disc{display:none}.game-stats{gap:8px}.game-top{padding:8px}.game-title{font-size:14px}.game-stats strong{font-size:14px}.game-hint{max-width:140px}.wordmark{font-size:12px}.site-tabs button{padding:0 11px}}
+@media(min-width:641px) and (max-height:620px){.stage{gap:8px;height:100%}.page{padding:8px 14px}.site-topline{min-height:38px}.site-tabs button{min-height:32px}.card{padding:14px 20px;gap:24px}.profile{padding:0 22px 0 0}.eyebrow{display:none}.avatar-wrapper{height:65px;width:65px;margin-bottom:13px;border-radius:20px}.avatar{border-radius:15px}#profile-name{font-size:26px}.subtitle{font-size:14px;margin-top:5px}.profile-contact{margin-top:12px}.links-container{gap:7px}.links-container .link-btn{padding:8px 11px;min-height:44px}.link-detail{display:none}.music-player{padding:7px 14px 3px}.music-kicker{display:none}.music-status{display:none}.music-timeline input[type=range]{height:30px}.game-center{gap:9px;padding:12px}.game-center h3{font-size:23px}.game-center p{font-size:13px}.game-top{padding:8px 16px}.game-bottom{min-height:48px;padding:3px 12px}.game-open .music-timeline,.game-open .music-options,.game-open .music-status{display:none}.game-open .music-player{grid-template-columns:1fr auto}.game-center .mode-select{position:absolute;top:12px;left:14px}.game-center .mode-select button{padding:0 12px}.game-center .song-field{width:min(340px,48%)}.game-center .game-calibrate{position:absolute;bottom:12px;left:14px}.game-center .game-message{position:absolute;bottom:8px;right:12px;max-width:36%;font-size:12px}}
+@media(min-width:641px) and (max-height:420px){.stage{gap:6px;grid-template-columns:minmax(0,1fr) 250px;grid-template-rows:38px minmax(0,1fr)}.site-topline{grid-column:1/-1}.card-frame,.game-panel{grid-column:1;grid-row:2}.music-player{grid-column:2;grid-row:2;display:flex;flex-direction:column;justify-content:center;gap:5px;padding:13px}.music-identity{flex:none}.transport{flex:none}.music-timeline{width:100%;flex:none;gap:5px}.music-options{display:flex;flex-wrap:wrap;justify-content:center;gap:4px}.music-options input{flex:0 1 68px;max-width:68px}.music-options #playlist-open{margin:0}.music-status{display:block}.card{grid-template-columns:150px minmax(0,1fr);padding:12px;gap:14px}.profile{padding-right:10px}.avatar-wrapper{width:44px;height:44px;margin-bottom:8px}#profile-name{font-size:20px}.subtitle{font-size:12px}.profile-contact{margin-top:7px}.personal-link strong{font-size:12px}.personal-link{padding:4px 7px;min-height:36px}#copy-nick{min-height:36px;width:36px}.links-container{gap:5px}.links-container .link-btn{padding:5px;gap:5px;min-height:40px}.icon{height:24px;width:24px}.link-name{font-size:12px}.game-open .stage{grid-template-columns:1fr;grid-template-rows:38px minmax(0,1fr)}.game-open .music-player{display:none}.game-center h3{font-size:22px}.game-center{gap:6px}.game-center p{max-width:330px}.game-center .mode-select{top:8px;left:10px}.game-center .song-field{width:300px}.game-center .game-calibrate{bottom:8px;left:10px}.game-primary{min-height:40px}.game-center .mode-select button{min-height:36px}.game-center .game-message{bottom:6px;right:9px}}
+@media(min-width:1800px) and (min-height:1000px){.stage{max-width:1500px;height:900px;gap:22px}.card{padding:48px;gap:52px}.links-container .link-btn{min-height:94px;padding:20px}.link-name{font-size:18px}.link-detail{font-size:15px}.icon{height:46px;width:46px}#profile-name{font-size:46px}.subtitle{font-size:18px}.avatar-wrapper{width:150px;height:150px}.music-player{padding:22px 26px 12px}.game-title{font-size:22px}.game-center h3{font-size:38px}}
+@media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
+
+</style>
+</head>
 <body>
   <div class="scene" aria-hidden="true"><div class="ambient-grid"></div><div class="ambient-orbit"></div><div class="ambient-floor"></div><div class="ambient-points"></div><div class="backdrop-type">PLAY<br><span>CREATE</span></div><div class="code-marks"><span>&lt;/&gt;</span><span>LEVEL UP</span><span>{ PLAY }</span><span>GG WP</span><span>01 / 23</span><span>CREATE_</span></div><div class="star-field"></div></div>
   <main class="page">
     <div class="stage">
-      <div class="card-frame">
+      <header class="site-topline"><div class="wordmark">PAPACHIZ <span>На своей волне.</span></div><nav class="site-tabs" role="tablist" aria-label="Разделы сайта"><button type="button" id="home-tab" role="tab" aria-controls="home-panel" aria-selected="true">Главная</button><button type="button" id="game-tab" role="tab" aria-controls="game-panel" aria-selected="false" tabindex="-1">Играть</button></nav></header>
+      <div class="card-frame" id="home-panel" role="tabpanel" aria-labelledby="home-tab">
     <section class="card" aria-labelledby="profile-name"><div class="card-light" aria-hidden="true"></div>
       <header class="profile">
         <p class="eyebrow">ИГРАЕМ. ОБЩАЕМСЯ. СОЗДАЁМ.</p>
         <div class="avatar-wrapper"><img src="https://i.postimg.cc/PqHL0s5m/Chat-GPT-Image-24-maa-2026-g-14-33-59.png" class="avatar" alt="Папачиз" width="144" height="144" decoding="async"></div>
         <h1 id="profile-name">PAPACHIZ<span>123</span></h1>
         <p class="subtitle">На своей волне.</p>
-        <div class="profile-contact"><a class="personal-link" href="mailto:gaip7798@gmail.com" aria-label="Написать мне по электронной почте"><strong>Написать мне <span aria-hidden="true">↗</span></strong></a><button id="copy-nick" type="button" aria-label="Скопировать email" title="Скопировать email"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M15 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></svg></button><span class="copy-feedback" id="copy-feedback" role="status"></span></div>
-        <button class="mini-launch" id="mini-launch" type="button" aria-haspopup="dialog"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.7" aria-hidden="true"><path d="m13 2-8 12h6l-1 8 9-13h-6z"/></svg>Сыграть минутку</button>
+        <div class="profile-contact"><a class="personal-link" href="https://t.me/kxtssu" aria-label="Написать мне в Telegram: @kxtssu"><span class="contact-caption">Написать мне</span><strong>@kxtssu <span aria-hidden="true">↗</span></strong></a><button id="copy-nick" type="button" aria-label="Скопировать @kxtssu" title="Скопировать ник"><svg viewBox="0 0 24 24" aria-hidden="true" fill="none"><rect x="8" y="8" width="12" height="12" rx="3"/><path d="M15 8V6a2 2 0 0 0-2-2H6a2 2 0 0 0-2 2v7a2 2 0 0 0 2 2h2"/></svg></button><span class="copy-feedback" id="copy-feedback" role="status"></span></div>
       </header>
       <nav class="links-container" aria-label="Мои соцсети">
         <a href="https://t.me/mrxfrx" class="link-btn telegram"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="m21 3-3.4 17-5.4-4-2.8 2.6.5-5L18 6 7.5 12.7 2 11z"/></svg></span><span class="link-label"><span class="link-name">Telegram</span><span class="link-detail">Мой канал · @mrxfrx</span></span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
@@ -150,9 +175,33 @@ html,body{width:100%;height:100%;min-height:0;overflow:hidden;overscroll-behavio
         <a href="https://discord.gg/qMHVXrs7yF" class="link-btn discord"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M19.7 5a18 18 0 0 0-4.5-1.4l-.6 1.2a17 17 0 0 0-5.2 0l-.6-1.2A18 18 0 0 0 4.3 5C1.5 9.1.8 13 1.2 16.9A18 18 0 0 0 6.7 20l1.1-1.9-1.6-.8.4-.3a13 13 0 0 0 10.8 0l.4.3-1.6.8 1.1 1.9a18 18 0 0 0 5.5-3.1c.5-4.6-.8-8.5-3.1-11.9zM8 14.5c-1 0-1.7-.9-1.7-2s.7-2 1.7-2 1.7.9 1.7 2-.7 2-1.7 2zm8 0c-1 0-1.7-.9-1.7-2s.7-2 1.7-2 1.7.9 1.7 2-.7 2-1.7 2z"/></svg></span><span class="link-label"><span class="link-name">Discord</span><span class="link-detail">Присоединиться к серверу</span></span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
         <a href="https://www.youtube.com/@Papachiz123" class="link-btn youtube"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" focusable="false"><path d="M21.6 6.2c-.3-1-1.1-1.8-2.1-2.1C17.6 3.6 12 3.6 12 3.6s-5.6 0-7.5.5c-1 .3-1.8 1.1-2.1 2.1C2 8.1 2 12 2 12s0 3.9.4 5.8c.3 1 1.1 1.8 2.1 2.1 1.9.5 7.5.5 7.5.5s5.6 0 7.5-.5c1-.3 1.8-1.1 2.1-2.1.4-1.9.4-5.8.4-5.8s0-3.9-.4-5.8zM10 16V8l7 4-7 4z"/></svg></span><span class="link-label"><span class="link-name">YouTube</span><span class="link-detail">@Papachiz123</span></span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
         <a href="https://papachiz-game-7948828570.papachiz-music.workers.dev/" class="link-btn my-game"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M7 5h10c2 0 3 2 4 6l1 5c.6 3-2 5-4 3l-3-3H9l-3 3c-2 2-4.6 0-4-3l1-5c1-4 2-6 4-6zm-1 4v2H4v2h2v2h2v-2h2v-2H8V9zm10 1a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3zm3 3a1.5 1.5 0 1 0 0 3 1.5 1.5 0 0 0 0-3z"/></svg></span><span class="link-label"><span class="link-name">Моя игра</span><span class="link-detail">Разработка · кадры · идеи</span></span><svg class="arrow" viewBox="0 0 24 24" aria-hidden="true"><path d="M5 19 19 5M5 5h14v14"/></svg></a>
+
+        <a href="#instagram" id="instagram-link" class="link-btn instagram" aria-disabled="true"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" fill="none" style="fill:none;stroke:currentColor;stroke-width:1.7"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" style="fill:currentColor;stroke:none"/></svg></span><span class="link-label"><span class="link-name">Instagram</span><span class="link-detail">Скоро здесь</span></span></a>
+        <button type="button" class="link-btn arcade-link" id="arcade-open"><span class="icon" aria-hidden="true"><svg viewBox="0 0 24 24" style="fill:none;stroke:currentColor;stroke-width:1.8"><path d="M2 12h5l3-7 4 14 3-7h5"/></svg></span><span class="link-label"><span class="link-name">Поймай ритм</span><span class="link-detail">Полоска · музыка</span></span></button>
       </nav>
     </section>
       </div>
+<section id="game-panel" class="game-panel" role="tabpanel" aria-labelledby="game-tab" hidden>
+ <header class="game-top"><div><h2 class="game-title">PULSE <span>/</span> поймай момент</h2><p class="game-meta" id="game-mode-label">Без таймера. В твоём темпе — пока можешь.</p></div><div class="game-stats" aria-label="Результат"><div><small>Очки</small><strong id="game-score">0</strong></div><div><small>Комбо</small><strong id="game-combo">0×</strong></div><div><small id="game-metric-label">Скорость</small><strong id="game-metric">1.0×</strong></div></div></header>
+ <div class="game-arena" id="game-arena">
+  <canvas id="game-canvas" aria-label="Игровое поле. Полоска: пробел или кнопка. Ритм: нажимай круги или используй Z и X для ближайшей ноты." role="img"></canvas>
+  <button id="game-tap" type="button" class="game-tap" hidden>Попасть <span aria-hidden="true">↵</span></button>
+  <div class="game-center" id="game-setup">
+   <div class="mode-select" aria-label="Режим игры"><button type="button" id="mode-lane" aria-pressed="true">Полоска</button><button type="button" id="mode-rhythm" aria-pressed="false">В ритм</button></div>
+   <h3 id="game-heading">Ещё одно попадание.</h3>
+   <p id="game-description">Нажми, когда бегунок окажется в светлой зоне. Полоска разгоняется, а у тебя три попытки.</p>
+   <label class="song-field" id="game-song-field" hidden>Песня из твоего плейлиста<select id="game-song"><option value="">Загружаю песни…</option></select></label>
+   <label class="game-calibrate" id="game-offset-field" hidden>Поправка звука <input id="game-offset" type="number" min="-250" max="250" step="10" value="0" aria-label="Поправка времени нажатия в миллисекундах"> мс</label>
+   <button type="button" class="game-primary" id="game-start">Начать игру</button>
+   <div id="game-message" class="game-message" role="status"></div>
+  </div>
+  <div class="game-center" id="game-pause-panel" hidden><h3>Выдохни. Мы подождём.</h3><p>Игра и музыка на паузе.</p><div class="game-actions"><button type="button" class="game-primary" id="game-resume">Продолжить</button><button type="button" class="game-secondary" id="game-restart-paused">Заново</button></div></div>
+  <div class="game-center" id="game-result" hidden><h3 id="game-result-title">Хороший заход.</h3><p id="game-result-text"></p><p class="result-details" id="game-best"></p><div class="game-actions"><button type="button" class="game-primary" id="game-again">Ещё раз</button><button type="button" class="game-secondary" id="game-change">Сменить режим</button></div></div>
+ </div>
+ <footer class="game-bottom"><p class="game-hint" id="game-hint">Пробел / касание · 3 попытки</p><div class="game-bottom-controls"><label class="effects-control"><input id="game-effects" type="checkbox" checked>Эффекты</label><button type="button" class="game-secondary" id="game-pause" disabled aria-label="Пауза игры">Пауза</button></div></footer>
+ <span class="sr-only" role="status" id="game-accessible"></span>
+</section>
+
       <section class="music-player" id="music-player" aria-label="Музыкальный плеер">
         <div class="music-identity">
           <div class="track-disc" aria-hidden="true"><span class="disc-fallback">♫</span><img id="music-cover" alt="" width="72" height="72" hidden></div>
@@ -169,12 +218,12 @@ html,body{width:100%;height:100%;min-height:0;overflow:hidden;overscroll-behavio
         <audio id="music-audio" preload="metadata" crossorigin="anonymous"></audio>
         <noscript><p>Для управления плеером включи JavaScript.</p></noscript>
       </section>
-      <nav class="legal-links" aria-label="Документы сайта"><a href="./privacy.html">Конфиденциальность</a><a href="./terms.html">Правила сайта</a></nav>
-<div class="stage-footer" aria-hidden="true"><span>GAME <i>/</i> CODE <i>/</i> CONNECT</span><span class="footer-bars"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span><span>PAPACHIZ123</span></div>
+      <div class="stage-footer" aria-hidden="true"><span>GAME <i>/</i> CODE <i>/</i> CONNECT</span><span class="footer-bars"><b></b><b></b><b></b><b></b><b></b><b></b><b></b></span><span>PAPACHIZ123</span></div>
     </div>
   </main>
+  <div id="instagram-message" class="instagram-message" role="status" hidden>Ссылка на Instagram пока не добавлена.</div>
   <div class="playlist-overlay" id="playlist-panel" role="dialog" aria-modal="true" aria-labelledby="playlist-title" hidden>
-    <div class="playlist-sheet"><div class="playlist-heading"><div class="playlist-intro"><span class="playlist-eyebrow">PAPACHIZ / MUSIC</span><h2 id="playlist-title">На моей волне</h2><p id="playlist-summary" class="playlist-summary">Треки из моего канала</p></div><button type="button" id="playlist-close" aria-label="Закрыть список">✕</button></div><div class="order-buttons"><button id="music-direction" type="button" aria-label="Обратный порядок" aria-pressed="false" title="Сверху вниз"><svg viewBox="0 0 24 24"><path d="M7 20V4m-4 4 4-4 4 4M17 4v16m-4-4 4 4 4-4"/></svg></button><button id="music-cycle" type="button" aria-label="По кругу; выключено — случайно" aria-pressed="false" title="Случайно"><svg viewBox="0 0 24 24"><path d="m17 2 4 4-4 4M3 11V6h18M7 22l-4-4 4-4m14-1v5H3"/></svg></button></div><div class="playlist-divider" aria-hidden="true"></div><ol id="track-list"></ol></div>
+    <div class="playlist-sheet"><div class="playlist-heading"><div class="playlist-intro"><span class="playlist-eyebrow">PAPACHIZ / MUSIC</span><h2 id="playlist-title">На моей волне</h2><p id="playlist-summary" class="playlist-summary">Треки из моего канала</p></div><button type="button" id="playlist-close" aria-label="Закрыть список">✕</button></div><div class="playlist-divider" aria-hidden="true"></div><ol id="track-list"></ol></div>
   </div>
   <script>
     // Audio is optional: unsupported or blocked audio must never stop navigation.
@@ -224,7 +273,7 @@ html,body{width:100%;height:100%;min-height:0;overflow:hidden;overscroll-behavio
    Пример:
    { title: "Название песни", artist: "Исполнитель", src: "music/song.mp3", cover: "covers/song.jpg" },
 */
-var MUSIC_API = "https://papachiz-music-7948828570.papachiz-music.workers.dev";
+var MUSIC_API = "";
 var PLAYLIST = [
   // Добавь треки здесь по примеру выше.
 ];
@@ -236,16 +285,6 @@ var PLAYLIST = [
   var play = document.getElementById('music-play');
   var prev = document.getElementById('music-prev');
   var next = document.getElementById('music-next');
-  var directionButton=document.getElementById('music-direction'),cycleButton=document.getElementById('music-cycle');
-  var reversed=false,cycling=false,musicOrder='random';
-  try{reversed=localStorage.getItem('papachiz.reverse')==='true';cycling=localStorage.getItem('papachiz.cycle')==='true';}catch(_){}
-  function updateOrder(){musicOrder=cycling?(reversed?'reverse':'forward'):'random';directionButton.setAttribute('aria-pressed',String(reversed));cycleButton.setAttribute('aria-pressed',String(cycling));directionButton.title=reversed?'Снизу вверх':'Сверху вниз';cycleButton.title=cycling?'По кругу':'Случайно';try{localStorage.setItem('papachiz.reverse',String(reversed));localStorage.setItem('papachiz.cycle',String(cycling));}catch(_){}}
-  directionButton.addEventListener('click',function(){reversed=!reversed;updateOrder();});cycleButton.addEventListener('click',function(){cycling=!cycling;updateOrder();});updateOrder();
-  function orderedIndex(direction) {
-    if (tracks.length < 2) return 0;
-    if (musicOrder === 'random') return (index + 1 + Math.floor(Math.random() * (tracks.length - 1))) % tracks.length;
-    return index + direction * (musicOrder === 'reverse' ? -1 : 1);
-  }
   var seek = document.getElementById('music-seek');
   var cover = document.getElementById('music-cover');
   var title = document.getElementById('music-title');
@@ -261,7 +300,7 @@ var PLAYLIST = [
   var volume = document.getElementById('music-volume');
   var mute = document.getElementById('music-mute');
   var gain, context, sourceNode, savedVolume = 1;
-  var initialTrackSelected = false;
+  var initialTrackSelected = false, heldByGame = false;
   volume.value = savedVolume;
   function paintRange(control) {
     var min = Number(control.min) || 0, max = Number(control.max) || 1;
@@ -315,6 +354,7 @@ var PLAYLIST = [
     }
   });
   function renderList() {
+    window.dispatchEvent(new CustomEvent('papachiz:playlist'));
     list.textContent = '';
     listOpen.textContent = 'Треки · ' + tracks.length;
     var totalSeconds = tracks.reduce(function (sum, t) { return sum + (Number(t.duration) > 0 ? Number(t.duration) : 0); }, 0);
@@ -365,7 +405,8 @@ var PLAYLIST = [
   }
   function fail(message) { wanted = false; playing(false); controls(); status.textContent = message; }
   function start(automatic) {
-    if (!tracks.length) return;
+    if (!tracks.length || (automatic && heldByGame)) return;
+    if (!automatic) window.dispatchEvent(new CustomEvent('papachiz:music-intent'));
     // Keep the initial autoplay on native audio: a suspended AudioContext
     // would otherwise silence playback even where media autoplay is allowed.
     if (!automatic) prepareAudio();
@@ -396,8 +437,8 @@ var PLAYLIST = [
   cover.addEventListener('load', function () { cover.hidden = false; });
   cover.addEventListener('error', function () { cover.hidden = true; });
   play.addEventListener('click', function () { if (wanted) pause(); else start(); });
-  prev.addEventListener('click', function () { load(orderedIndex(-1), wanted); });
-  next.addEventListener('click', function () { load(orderedIndex(1), wanted); });
+  prev.addEventListener('click', function () { load(index - 1, wanted); });
+  next.addEventListener('click', function () { load(index + 1, wanted); });
   seek.addEventListener('input', function () {
     paintRange(seek);
     if (isFinite(audio.duration) && audio.duration > 0) {
@@ -412,7 +453,7 @@ var PLAYLIST = [
   audio.addEventListener('durationchange', progress);
   audio.addEventListener('error', function () { fail('Трек недоступен. Попробуй ещё раз или переключи его.'); });
   audio.addEventListener('ended', function () {
-    if (tracks.length > 1) load(orderedIndex(1), true);
+    if (tracks.length > 1) load(index + 1, true);
     else { wanted = false; playing(false); controls(); status.textContent = 'Трек завершён'; }
   });
   function ready() {
@@ -421,9 +462,14 @@ var PLAYLIST = [
     play.disabled = false; prev.disabled = next.disabled = tracks.length < 2;
     if (!initialTrackSelected) {
       initialTrackSelected = true;
-      load(musicOrder === 'random' ? Math.floor(Math.random() * tracks.length) : musicOrder === 'reverse' ? tracks.length - 1 : 0, true, true);
+      load(Math.floor(Math.random() * tracks.length), true, true);
     } else { load(0, false); }
   }
+  window.PapachizMusic = {
+    getTracks: function () { return tracks.map(function(t){return Object.assign({},t);}); },
+    suspendForGame: function () { var snapshot={src:audio.src,playing:wanted&&!audio.paused}; heldByGame=true; pause(); return snapshot; },
+    restoreAfterGame: function (snapshot) { heldByGame=false; if(snapshot&&snapshot.playing&&audio.src===snapshot.src) start(); }
+  };
   ready();
   function refreshPlaylist() {
     var previousSrc = tracks[index] && tracks[index].src;
@@ -450,19 +496,19 @@ var PLAYLIST = [
     var feedback = document.getElementById('copy-feedback');
     var feedbackTimer;
     function result(ok) {
-      feedback.textContent = ok ? 'Email скопирован' : 'Email: gaip7798@gmail.com';
+      feedback.textContent = ok ? 'Ник скопирован' : 'Ник для копирования: @kxtssu';
       clearTimeout(feedbackTimer);
       feedbackTimer = setTimeout(function () { feedback.textContent = ''; }, 3500);
     }
     function fallback() {
-      var input = document.createElement('textarea'); input.value = 'gaip7798@gmail.com';
+      var input = document.createElement('textarea'); input.value = '@kxtssu';
       input.style.cssText = 'position:fixed;top:0;left:0;width:1px;height:1px;opacity:0';
       document.body.appendChild(input); input.select();
       var ok = false; try { ok = document.execCommand('copy'); } catch (e) {}
       input.remove(); copy.focus(); result(ok);
     }
     copy.addEventListener('click', function () {
-      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText('gaip7798@gmail.com').then(function () { result(true); }, fallback);
+      if (navigator.clipboard && window.isSecureContext) navigator.clipboard.writeText('@kxtssu').then(function () { result(true); }, fallback);
       else fallback();
     });
     var card = document.querySelector('.card');
@@ -479,40 +525,193 @@ var PLAYLIST = [
   }());
   </script>
 
+
 <script>
-(function () {
-  var page = document.querySelector('.page'), stage = document.querySelector('.stage');
-  var pending = 0;
-  function fitScreen() {
-    pending = 0;
-    var style = getComputedStyle(page);
-    var width = page.clientWidth - parseFloat(style.paddingLeft) - parseFloat(style.paddingRight);
-    var height = page.clientHeight - parseFloat(style.paddingTop) - parseFloat(style.paddingBottom);
-    var naturalWidth = Math.max(stage.offsetWidth, stage.scrollWidth);
-    var naturalHeight = Math.max(stage.offsetHeight, stage.scrollHeight);
-    if (width <= 0 || height <= 0 || !naturalWidth || !naturalHeight) return;
-    var scale = Math.min(1, width / naturalWidth, height / naturalHeight);
-    stage.style.setProperty('--screen-fit', String(scale));
-  }
-  function scheduleFit() { if (!pending) pending = requestAnimationFrame(fitScreen); }
-  window.addEventListener('resize', scheduleFit);
-  window.addEventListener('pageshow', scheduleFit);
-  if (window.visualViewport) window.visualViewport.addEventListener('resize', scheduleFit);
-  if (window.ResizeObserver) {
-    var observer = new ResizeObserver(scheduleFit);
-    observer.observe(page); observer.observe(stage);
-  }
-  if (document.fonts && document.fonts.ready) document.fonts.ready.then(scheduleFit);
-  fitScreen();
-}());
+/* Pure game rules; no network, audio output or DOM side effects. */
+(function(root){
+'use strict';
+const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
+function speed(seconds){return .43+.005*Math.max(0,seconds)+.026*Math.sqrt(Math.max(0,seconds));}
+function approach(seconds){return Math.max(.58,1.35-.0035*Math.max(0,seconds));}
+function judge(error){const ms=Math.abs(error)*1000;return ms<=65?300:ms<=125?150:ms<=190?50:0;}
+function analyse(samples,rate){
+ const hop=512,count=Math.floor(samples.length/hop),energy=new Float32Array(count),flux=new Float32Array(count);
+ let previous=0;
+ for(let frame=0;frame<count;frame++){
+  let sum=0,high=0;for(let j=0;j<hop;j++){const v=samples[frame*hop+j];sum+=v*v;const d=v-previous;high+=d*d;previous=v;}
+  energy[frame]=Math.sqrt(sum/hop)+.45*Math.sqrt(high/hop);
+  if(frame)flux[frame]=Math.max(0,energy[frame]-energy[frame-1]);
+ }
+ const peaks=[],window=Math.round(rate/hop*.65);let running=0;
+ for(let i=1;i<count-2;i++){
+  running+=flux[i];if(i>window)running-=flux[i-window];
+  const average=running/Math.min(i,window),value=flux[i];
+  const t=(i*hop+hop*.5)/rate;
+  if(t<.5||t>samples.length/rate-.25||value<Math.max(.004,average*1.7)||value<flux[i-1]||value<=flux[i+1])continue;
+  const last=peaks[peaks.length-1];
+  if(last&&t-last.time<.26){if(value>last.strength)peaks[peaks.length-1]={time:t,strength:value};}
+  else peaks.push({time:t,strength:value});
+ }
+ return peaks;
+}
+function position(index){
+ // Deterministic spread with no random notes: only positions vary, timing comes from the waveform.
+ const columns=[.23,.72,.5,.28,.76,.49,.20,.69],rows=[.31,.39,.68,.64,.64,.29,.48,.27];
+ return {x:columns[index%columns.length],y:rows[index%rows.length]};
+}
+root.PapachizRhythm={clamp,speed,approach,judge,analyse,position};
+})(typeof window!=='undefined'?window:globalThis);
+
 </script>
-<dialog class="light-game" id="light-game" aria-labelledby="lg-title">
- <div class="lg-shell"><div class="lg-head"><h2 id="lg-title">Не дай свету погаснуть</h2><button class="lg-control" id="lg-close" aria-label="Закрыть игру">✕</button></div>
- <div class="lg-stats"><span>Очки <strong id="lg-score">0</strong></span><span>Рекорд <strong id="lg-best">0</strong></span><strong id="lg-time">60 с</strong></div>
- <div class="lg-meter" role="progressbar" aria-label="Запас света" aria-valuemin="0" aria-valuemax="100" aria-valuenow="100"><span></span></div>
- <div class="lg-arena"><div class="lg-overlay"><h3>Не дай свету погаснуть</h3><p>Лови огоньки мышкой или пальцем. Пропущенный огонёк отнимает свет. Продержись 60 секунд.</p><button id="lg-start" class="lg-primary">Начать</button></div></div>
- <section class="lg-leaders" aria-label="Три лучших игрока"><div class="lg-rank-heading">ТОП-3 <span>Есть место для твоего рекорда</span></div><ol id="lg-top"><li>Загружаем рекорды…</li></ol></section><form id="lg-submit" hidden><input id="lg-name" aria-label="Твой ник" placeholder="Твой ник" minlength="2" maxlength="20" required><button class="lg-primary">В топ-3</button></form><p id="lg-network" role="status"></p><div class="lg-foot"><span>Один огонёк — 10 очков</span><button id="lg-pause" class="lg-control" disabled>Пауза</button></div></div>
-</dialog>
-<script src="./light-game.js"></script>
+<script>
+(function(){
+'use strict';
+const $=id=>document.getElementById(id),core=window.PapachizRhythm;
+const panel=$('game-panel'),arena=$('game-arena'),canvas=$('game-canvas'),ctx=canvas.getContext('2d');
+let mode='lane',state='setup',frame=0,lastFrame=0,elapsed=0,score=0,combo=0,maxCombo=0,lives=3;
+let phase=0,pass=0,passHit=false,target=.5,lastTap=-10,notes=[],missIndex=0,hitCount=0,judged=0;
+let effects=[],label='',labelUntil=0,flash=0,width=600,height=400;
+let audioContext=null,gameGain=null,audioSource=null,buffer=null,cachedSrc='',clockStart=0,offset=0;
+let fetchController=null,operation=0,suspendedPlayer=null,activeSrc='',isGameView=false;
+const reduced=window.matchMedia('(prefers-reduced-motion: reduce)');
+$('game-effects').checked=!reduced.matches;
+function setMessage(text){$('game-message').textContent=text;}
+function metric(){
+ $('game-score').textContent=score.toLocaleString('ru-RU');$('game-combo').textContent=combo+'×';
+ $('game-metric-label').textContent=mode==='lane'?'Скорость':'Точность';
+ $('game-metric').textContent=mode==='lane'?(core.speed(elapsed)/core.speed(0)).toFixed(1)+'×':(judged?Math.round(hitCount/judged*100):100)+'%';
+}
+function resize(){const r=arena.getBoundingClientRect();if(!r.width||!r.height)return;width=r.width;height=r.height;const dpr=Math.min(window.devicePixelRatio||1,2);canvas.width=Math.round(width*dpr);canvas.height=Math.round(height*dpr);ctx.setTransform(dpr,0,0,dpr,0,0);if(state!=='running')draw();}
+new ResizeObserver(resize).observe(arena);
+function show(name){$('game-setup').hidden=name!=='setup';$('game-pause-panel').hidden=name!=='paused';$('game-result').hidden=name!=='result';$('game-tap').hidden=name!=='running'||mode!=='lane';$('game-pause').disabled=name!=='running';if(name==='running'){canvas.tabIndex=0;canvas.focus({preventScroll:true});}}
+function tracks(){return window.PapachizMusic?window.PapachizMusic.getTracks():[];}
+function refreshSongs(){
+ const selected=$('game-song').value,list=tracks();$('game-song').textContent='';
+ if(!list.length){const option=document.createElement('option');option.value='';option.textContent='Плейлист пока недоступен';$('game-song').appendChild(option);}
+ list.forEach(t=>{const option=document.createElement('option');option.value=t.src;option.textContent=(t.artist?t.artist+' — ':'')+(t.title||'Без названия');$('game-song').appendChild(option);});
+ if(list.some(t=>t.src===selected))$('game-song').value=selected;
+ if(state==='setup')$('game-start').disabled=mode==='rhythm'&&!list.length;
+}
+window.addEventListener('papachiz:playlist',refreshSongs);
+function stopAudio(){if(audioSource){audioSource.onended=null;try{audioSource.stop();}catch(_){}audioSource.disconnect();audioSource=null;}}
+function stopLoop(){cancelAnimationFrame(frame);frame=0;}
+function restorePlayer(){if(suspendedPlayer&&window.PapachizMusic){const snapshot=suspendedPlayer;suspendedPlayer=null;window.PapachizMusic.restoreAfterGame(snapshot);}}
+function abortLoad(){operation++;if(fetchController)fetchController.abort();fetchController=null;}
+function setup(){abortLoad();stopLoop();stopAudio();state='setup';restorePlayer();show('setup');setMessage('');$('game-start').textContent='Начать игру';$('game-song').disabled=false;refreshSongs();metric();draw();}
+function selectMode(next){mode=next;setup();$('mode-lane').setAttribute('aria-pressed',String(mode==='lane'));$('mode-rhythm').setAttribute('aria-pressed',String(mode==='rhythm'));$('game-song-field').hidden=mode!=='rhythm';$('game-offset-field').hidden=mode!=='rhythm';$('game-heading').textContent=mode==='lane'?'Ещё одно попадание.':'Поймай свою волну.';$('game-description').textContent=mode==='lane'?'Нажми, когда бегунок окажется в светлой зоне. Полоска разгоняется, а у тебя три попытки.':'Выбери трек. Нажимай круги, когда кольцо сойдётся с ними. Ноты создаются из акцентов самой песни.';$('game-hint').textContent=mode==='lane'?'Пробел / касание · 3 попытки':'Касайся кругов · Z / X — ближайшая нота';$('game-mode-label').textContent=mode==='lane'?'Без таймера. В твоём темпе — пока можешь.':'Авторазметка трека · кольца ускоряются по ходу песни';metric();}
+$('mode-lane').addEventListener('click',()=>selectMode('lane'));$('mode-rhythm').addEventListener('click',()=>selectMode('rhythm'));
+function activateGame(){isGameView=true;document.body.classList.add('game-open');$('home-panel').hidden=true;panel.hidden=false;$('home-tab').setAttribute('aria-selected','false');$('home-tab').tabIndex=-1;$('game-tab').setAttribute('aria-selected','true');$('game-tab').tabIndex=0;refreshSongs();resize();}
+function activateHome(){if(state==='running')pauseGame();if(state==='loading')setup();isGameView=false;restorePlayer();document.body.classList.remove('game-open');panel.hidden=true;$('home-panel').hidden=false;$('home-tab').setAttribute('aria-selected','true');$('home-tab').tabIndex=0;$('game-tab').setAttribute('aria-selected','false');$('game-tab').tabIndex=-1;}
+$('game-tab').addEventListener('click',activateGame);$('arcade-open').addEventListener('click',activateGame);$('home-tab').addEventListener('click',activateHome);
+for(const id of ['home-tab','game-tab'])$(id).addEventListener('keydown',e=>{if(e.key==='ArrowRight'||e.key==='ArrowLeft'){e.preventDefault();if(id==='home-tab'){activateGame();$('game-tab').focus();}else{activateHome();$('home-tab').focus();}}});
+function resetRun(){elapsed=0;score=combo=maxCombo=0;lives=3;phase=pass=0;passHit=false;target=.5;lastTap=-10;missIndex=hitCount=judged=0;effects=[];label='';flash=0;offset=0;}
+function volume(){if(gameGain){const main=$('music-audio');gameGain.gain.value=main.muted?0:Number($('music-volume').value);}}
+$('music-volume').addEventListener('input',volume);$('music-mute').addEventListener('click',volume);
+async function ensureContext(){
+ const AC=window.AudioContext||window.webkitAudioContext;if(!AC)throw new Error('Этот браузер не поддерживает ритм-режим. Полоска доступна без музыки.');
+ if(!audioContext){audioContext=new AC();gameGain=audioContext.createGain();gameGain.connect(audioContext.destination);audioContext.addEventListener('statechange',()=>{if(audioContext.state!=='running'&&state==='running'&&mode==='rhythm')pauseGame();});}
+ await audioContext.resume();volume();
+}
+async function getBytes(url,signal){
+ const response=await fetch(url,{signal,mode:'cors'});if(!response.ok)throw new Error('Песня недоступна. Выбери другой трек или попробуй позже.');
+ const max=21*1024*1024;if(Number(response.headers.get('content-length'))>max)throw new Error('Для игры выбери трек размером до 20 МБ.');
+ if(!response.body){const bytes=await response.arrayBuffer();if(bytes.byteLength>max)throw new Error('Трек слишком большой для игры.');return bytes;}
+ const reader=response.body.getReader(),chunks=[];let size=0;
+ try{while(true){const {done,value}=await reader.read();if(done)break;size+=value.length;if(size>max){await reader.cancel();throw new Error('Для игры выбери трек размером до 20 МБ.');}chunks.push(value);}}
+ finally{reader.releaseLock();}
+ const bytes=new Uint8Array(size);let at=0;for(const chunk of chunks){bytes.set(chunk,at);at+=chunk.length;}return bytes.buffer;
+}
+async function startGame(){
+ if(state==='loading'||state==='running')return;
+ stopLoop();stopAudio();resetRun();metric();
+ if(mode==='lane'){state='running';show('running');lastFrame=performance.now();frame=requestAnimationFrame(tick);return;}
+ const chosen=tracks().find(t=>t.src===$('game-song').value);if(!chosen){setMessage('Сначала выбери песню из списка.');return;}
+ if(Number(chosen.duration)>600){setMessage('Для ритм-режима выбери песню короче 10 минут.');return;}
+ const token=++operation;state='loading';show('setup');$('game-start').disabled=true;$('game-song').disabled=true;$('game-start').textContent='Готовим трек…';setMessage('Загружаю песню и нахожу акценты.');
+ if((!suspendedPlayer||!$('music-audio').paused)&&window.PapachizMusic)suspendedPlayer=window.PapachizMusic.suspendForGame();
+ try{
+  await ensureContext();if(token!==operation)return;
+  if(cachedSrc!==chosen.src||!buffer){
+   buffer=null;cachedSrc='';fetchController=new AbortController();const timeout=setTimeout(()=>fetchController&&fetchController.abort(),45000);
+   let bytes;try{bytes=await getBytes(chosen.src,fetchController.signal);}finally{clearTimeout(timeout);}
+   if(token!==operation)return;
+   const Offline=window.OfflineAudioContext||window.webkitOfflineAudioContext;
+   const decoder=Offline?new Offline(1,1,22050):audioContext;
+   const decoded=await decoder.decodeAudioData(bytes);if(token!==operation)return;
+   if(decoded.duration>600)throw new Error('Для ритм-режима выбери песню короче 10 минут.');
+   buffer=decoded;cachedSrc=chosen.src;
+  }
+  setMessage('Создаю ноты по звуку…');await new Promise(resolve=>setTimeout(resolve,0));if(token!==operation)return;
+  const peaks=core.analyse(buffer.getChannelData(0),buffer.sampleRate);
+  if(peaks.length<6)throw new Error('В этой песне мало чётких акцентов. Попробуй другой трек.');
+  notes=peaks.map((p,i)=>({...p,...core.position(i),index:i,status:'pending'}));activeSrc=chosen.src;
+  offset=-1.5;elapsed=offset;state='running';show('running');$('game-song').disabled=false;
+  playBuffer();lastFrame=performance.now();frame=requestAnimationFrame(tick);
+ }catch(error){if(token!==operation)return;state='setup';show('setup');$('game-start').disabled=false;$('game-song').disabled=false;$('game-start').textContent='Начать игру';setMessage(error.name==='AbortError'?'Загрузка прервалась. Попробуй ещё раз.':error.message&&error.name!=='TypeError'?error.message:'Не удалось загрузить аудио для анализа. Попробуй другую песню.');restorePlayer();}
+}
+function playBuffer(){stopAudio();volume();clockStart=audioContext.currentTime-offset;audioSource=audioContext.createBufferSource();audioSource.buffer=buffer;audioSource.connect(gameGain);audioSource.onended=()=>{if(state==='running')finish('Трек пройден.');};audioSource.start(audioContext.currentTime+Math.max(0,-offset),Math.max(0,offset));}
+function audioTime(){return audioContext.currentTime-clockStart;}
+function calibration(){return core.clamp(Number($('game-offset').value)||0,-250,250)/1000;}
+function pauseGame(){if(state!=='running')return;if(mode==='rhythm')offset=audioTime();state='paused';stopAudio();stopLoop();show('paused');$('game-resume').focus();}
+async function resumeGame(){if(state!=='paused')return;
+ if(mode==='rhythm'){if((!suspendedPlayer||!$('music-audio').paused)&&window.PapachizMusic)suspendedPlayer=window.PapachizMusic.suspendForGame();try{await ensureContext();}catch(_){return;}state='running';playBuffer();}else state='running';show('running');lastFrame=performance.now();frame=requestAnimationFrame(tick);}
+$('game-start').addEventListener('click',startGame);$('game-pause').addEventListener('click',pauseGame);$('game-resume').addEventListener('click',resumeGame);$('game-restart-paused').addEventListener('click',setup);$('game-again').addEventListener('click',startGame);$('game-change').addEventListener('click',setup);
+document.addEventListener('visibilitychange',()=>{if(document.hidden)pauseGame();});window.addEventListener('blur',pauseGame);
+// A main-player action takes priority: never overlap the music player and the rhythm track.
+window.addEventListener('papachiz:music-intent',()=>{if(suspendedPlayer)suspendedPlayer.playing=false;if(state==='loading')setup();else if(state==='running'&&mode==='rhythm')pauseGame();});
+for(const id of ['music-play','music-prev','music-next'])$(id).addEventListener('click',()=>{if(state==='running'&&mode==='rhythm')pauseGame();},true);
+function feedback(text,x,y,good){label=text;labelUntil=performance.now()+600;flash=good?1:.4;$('game-accessible').textContent=text+'. Очки '+score;
+ if($('game-effects').checked&&!reduced.matches)for(let i=0;i<14;i++){const a=i*Math.PI*2/14;effects.push({x,y,vx:Math.cos(a)*(30+Math.random()*70),vy:Math.sin(a)*(30+Math.random()*70),life:.5,good});}}
+function finish(text){state='result';stopAudio();stopLoop();show('result');$('game-result-title').textContent=text;$('game-result-text').textContent=score.toLocaleString('ru-RU')+' очков · лучшее комбо '+maxCombo+'×'+(mode==='rhythm'?' · точность '+(judged?Math.round(hitCount/judged*100):0)+'%':'');let best=score;try{const key='papachiz-pulse-best-'+mode+(mode==='rhythm'?'-'+activeSrc:'');best=Math.max(score,Number(localStorage.getItem(key))||0);localStorage.setItem(key,String(best));}catch(_){}$('game-best').textContent='Твой рекорд на этом устройстве: '+best.toLocaleString('ru-RU');$('game-again').focus();metric();draw();}
+function miss(){combo=0;judged++;if(mode==='lane'){lives--;if(lives<=0){finish('Ещё один заход?');return;}}feedback('Мимо',width*.5,height*.4,false);metric();}
+function laneHit(){if(state!=='running'||mode!=='lane'||elapsed-lastTap<.13||passHit)return;lastTap=elapsed;passHit=true;const pos=1-Math.abs(phase%2-1),zone=Math.max(.105,.19-score/140000);const delta=Math.abs(pos-target);
+ if(delta<=zone*.5){combo++;maxCombo=Math.max(maxCombo,combo);score+=Math.round(100*(1+Math.min(combo,50)*.08)*(delta<zone*.16?1.5:1));feedback(delta<zone*.16?'Идеально':'Есть!',width*(.1+.8*pos),height*.48,true);}else miss();metric();}
+function rhythmHit(x,y,keyboard){if(state!=='running'||mode!=='rhythm')return;
+ const now=audioTime()-calibration();let best=null,distance=.191;
+ for(let i=Math.max(0,missIndex-1);i<notes.length;i++){const n=notes[i];if(n.time>now+.20)break;if(n.status!=='pending')continue;const d=Math.abs(n.time-now);const radius=noteRadius();if(d<distance&&(keyboard||Math.hypot(n.x*width-x,n.y*height-y)<=radius+10)){best=n;distance=d;}}
+ if(!best){combo=0;metric();return;}
+ const points=core.judge(distance);best.status='hit';judged++;hitCount+=points/300;combo++;maxCombo=Math.max(maxCombo,combo);score+=Math.round(points*(1+Math.min(combo,100)*.015));feedback(points===300?'Идеально':points===150?'В ритм':'Почти',best.x*width,best.y*height,true);metric();}
+$('game-tap').addEventListener('pointerdown',e=>{if(e.button!==0)return;e.preventDefault();laneHit();});
+canvas.addEventListener('pointerdown',e=>{if(e.button!==0)return;e.preventDefault();if(mode==='lane')laneHit();else{const r=canvas.getBoundingClientRect();rhythmHit(e.clientX-r.left,e.clientY-r.top,false);}});
+document.addEventListener('keydown',e=>{if(!isGameView||e.repeat)return;if(e.code==='Escape'){e.preventDefault();if(state==='running')pauseGame();else if(state==='paused')resumeGame();return;}if(/^(INPUT|SELECT|TEXTAREA|BUTTON)$/.test(document.activeElement.tagName))return;if(state!=='running')return;if(mode==='lane'&&(e.code==='Space'||e.code==='Enter')){e.preventDefault();laneHit();}if(mode==='rhythm'&&(e.code==='KeyZ'||e.code==='KeyX'||e.code==='Space')){e.preventDefault();rhythmHit(0,0,true);}});
+function tick(time){if(state!=='running')return;const dt=Math.min(.06,Math.max(0,(time-lastFrame)/1000));lastFrame=time;
+ if(mode==='lane'){
+  elapsed+=dt;phase+=dt*core.speed(elapsed);const newPass=Math.floor(phase);
+  if(newPass!==pass){if(!passHit)miss();pass=newPass;passHit=false;target=.26+Math.random()*.48;}
+ }else{
+  elapsed=audioTime();const correction=calibration();
+  while(missIndex<notes.length&&notes[missIndex].time<elapsed-correction-.195){if(notes[missIndex].status==='pending'){notes[missIndex].status='miss';miss();}missIndex++;}
+ }
+ effects.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;});effects=effects.filter(p=>p.life>0);flash=Math.max(0,flash-dt*3);metric();draw();if(state==='running')frame=requestAnimationFrame(tick);
+}
+function noteRadius(){return Math.max(24,Math.min(39,width*.065,height*.12));}
+function circle(x,y,r,color,line=0){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);if(line){ctx.lineWidth=line;ctx.strokeStyle=color;ctx.stroke();}else{ctx.fillStyle=color;ctx.fill();}}
+function draw(){ctx.clearRect(0,0,width,height);ctx.fillStyle='#9ab7ca0b';for(let x=24;x<width;x+=32)for(let y=24;y<height;y+=32){ctx.fillRect(x,y,1,1);}
+ if(mode==='lane'){
+  const y=height*.47,start=width*.1,length=width*.8,zone=Math.max(.105,.19-score/140000);
+  ctx.fillStyle='#ffffff10';ctx.fillRect(start,y-7,length,14);ctx.fillStyle='#97d9ed36';ctx.fillRect(start+(target-zone*.5)*length,y-23,zone*length,46);ctx.fillStyle='#b7eafa';ctx.fillRect(start+(target-zone*.13)*length,y-23,zone*.26*length,46);
+  const pos=1-Math.abs(phase%2-1),x=start+pos*length;ctx.shadowColor='#ffb18c';ctx.shadowBlur=$('game-effects').checked?18:0;ctx.fillStyle='#ffbb98';ctx.fillRect(x-3,y-33,6,66);ctx.shadowBlur=0;circle(x,y-38,5,'#ffd0b5');
+  for(let i=0;i<3;i++)circle(width*.5+(i-1)*22,Math.max(28,y-70),5,i<lives?'#ffb18c':'#ffffff20');
+  ctx.font='13px -apple-system, sans-serif';ctx.fillStyle='#8fa6bb';ctx.textAlign='center';ctx.fillText('поймай светлую зону',width*.5,Math.min(height-65,y+66));
+ }else{
+  const now=state==='running'?audioTime():elapsed,radius=noteRadius(),lead=core.approach(Math.max(0,now));
+  if($('game-effects').checked&&!reduced.matches&&flash>0){ctx.fillStyle='rgba(151,217,237,'+(flash*.045)+')';ctx.fillRect(0,0,width,height);}
+  let active=[];for(let i=missIndex;i<notes.length;i++){let n=notes[i];if(n.time>now+lead)break;if(n.status==='pending')active.push(n);}
+  for(let j=active.length-1;j>=0;j--){const n=active[j],x=n.x*width,y=n.y*height,remaining=core.clamp((n.time-now)/lead,0,1);circle(x,y,radius,'#213c4e');circle(x,y,radius,'#a8e2f1',2);circle(x,y,radius*(1+remaining*1.3),'#ffb18c'+(Math.round((1-remaining*.55)*200).toString(16).padStart(2,'0')),2);ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='650 '+Math.round(radius*.58)+'px -apple-system, sans-serif';ctx.fillStyle='#ecf9ff';ctx.fillText(String(n.index%9+1),x,y);ctx.textBaseline='alphabetic';}
+  if(now<0){ctx.font='700 38px -apple-system, sans-serif';ctx.textAlign='center';ctx.fillStyle='#ffbd98';ctx.fillText('Лови ритм',width*.5,height*.48);}
+  // Accent flashes follow analysed note times, even before the player's input.
+  const near=notes[missIndex];if(near&&Math.abs(near.time-now)<.04&&$('game-effects').checked&&!reduced.matches){ctx.strokeStyle='#97d9ed44';ctx.lineWidth=3;ctx.strokeRect(2,2,width-4,height-4);}
+ }
+ if(performance.now()<labelUntil){ctx.textAlign='center';ctx.font='650 18px -apple-system, sans-serif';ctx.fillStyle=label==='Мимо'?'#ee9ea2':'#ffcfb9';ctx.fillText(label,width*.5,Math.max(27,height*.16));}
+ if($('game-effects').checked&&!reduced.matches)for(const p of effects){ctx.globalAlpha=Math.max(0,p.life*2);circle(p.x,p.y,2,p.good?'#ffd2b9':'#f39bab');}ctx.globalAlpha=1;
+}
+function instagram(){const a=$('instagram-link'),url=(window.PAPACHIZ_CONFIG&&window.PAPACHIZ_CONFIG.instagramUrl||'').trim();let valid=false;try{const parsed=new URL(url);valid=parsed.protocol==='https:'&&/^(www\.)?instagram\.com$/.test(parsed.hostname);}catch(_){}
+ if(valid){a.href=url;a.removeAttribute('aria-disabled');a.querySelector('.link-detail').textContent='Моменты вне эфира';}
+ else{a.setAttribute('aria-disabled','true');a.addEventListener('click',e=>{e.preventDefault();$('instagram-message').hidden=false;setTimeout(()=>$('instagram-message').hidden=true,2500);});}}
+instagram();const avatar=document.querySelector('.avatar');avatar.addEventListener('error',()=>{avatar.hidden=true;avatar.parentElement.classList.add('avatar-missing');});
+refreshSongs();metric();
+})();
+
+</script>
 </body>
 </html>
