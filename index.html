@@ -196,6 +196,20 @@ body::after{background:linear-gradient(130deg,transparent 17%,#91cdd310 17.1%,tr
 @media(prefers-reduced-motion:reduce){*,*::before,*::after{animation:none!important;transition:none!important}}
 .account-slot:has(#rhythm-account[hidden]){display:none}.game-top .account-actions{margin-left:auto}
 
+/* Compact catalogues; scoped rules protect stars from legacy span styles. */
+#playlist-panel>.playlist-sheet,#rhythm-catalogue>.playlist-sheet,#rhythm-top>.playlist-sheet{width:100%;max-width:560px;max-height:min(720px,calc(100dvh - 40px));height:auto;padding:22px;flex:0 1 560px}
+#playlist-panel,#rhythm-catalogue,#rhythm-top{padding:20px;box-sizing:border-box}
+#track-list,#rhythm-track-list{flex:1 1 auto;min-height:0;overflow-y:auto;overflow-x:hidden;scrollbar-width:thin}
+#rhythm-track-list .song-stars,.song-summary .song-stars{display:inline-flex;flex-direction:row;flex-wrap:nowrap;align-items:center;gap:3px;font-size:25px;line-height:1.15;width:max-content;margin:3px 0 0;padding:4px 7px}
+#rhythm-track-list .song-stars>span,.song-summary .song-stars>span{display:inline-block;flex:0 0 auto;font-size:inherit;line-height:inherit;color:inherit;margin:0;text-shadow:0 0 8px currentColor}
+#rhythm-track-list .track-choice{min-height:88px;margin-bottom:6px}
+body{background:radial-gradient(ellipse at 12% 35%,#124767 0,transparent 48%),radial-gradient(ellipse at 92% 70%,#30235f 0,transparent 50%),#080f1c}
+body::before{inset:0;transform:none;filter:none;mask-image:none;background-image:url("data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A//www.w3.org/2000/svg%22%20width%3D%221440%22%20height%3D%22900%22%20viewBox%3D%220%200%201440%20900%22%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%2340cfff%22%20stroke-width%3D%222%22%20opacity%3D%22.48%22%3E%3Cpath%20d%3D%22M0%20170h90l45%2045v140h95M1440%20200h-100l-55%2055v90h-75M0%20690h140l65-65h75M1440%20700h-150l-65-65h-60%22/%3E%3Ccircle%20cx%3D%22230%22%20cy%3D%22355%22%20r%3D%225%22/%3E%3Ccircle%20cx%3D%221210%22%20cy%3D%22345%22%20r%3D%225%22/%3E%3Cpath%20d%3D%22M30%20485q4-24%2027-24h46q23%200%2027%2024l9%2042q4%2023-12%2023-9%200-24-23H58q-15%2023-24%2023-16%200-12-23zM46%20480v27m-13-14h26%22/%3E%3Ccircle%20cx%3D%22104%22%20cy%3D%22487%22%20r%3D%224%22/%3E%3Ccircle%20cx%3D%22115%22%20cy%3D%22499%22%20r%3D%224%22/%3E%3Crect%20x%3D%221310%22%20y%3D%22410%22%20width%3D%2295%22%20height%3D%2274%22%20rx%3D%2210%22/%3E%3Cpath%20d%3D%22m1325%20434%2012%2010-12%2010m26%201h19M1325%20471h58%22/%3E%3C/g%3E%3Cg%20fill%3D%22%2367cfff%22%20opacity%3D%22.32%22%20font-family%3D%22monospace%22%20font-size%3D%2248%22%3E%3Ctext%20x%3D%2230%22%20y%3D%22120%22%3E%26lt%3B/%26gt%3B%3C/text%3E%3Ctext%20x%3D%221300%22%20y%3D%22140%22%3E%7B%20%7D%3C/text%3E%3Ctext%20x%3D%2248%22%20y%3D%22810%22%3E01%3C/text%3E%3Ctext%20x%3D%221300%22%20y%3D%22820%22%3E%2B%2B%3C/text%3E%3C/g%3E%3Cg%20fill%3D%22none%22%20stroke%3D%22%23936bff%22%20opacity%3D%22.3%22%3E%3Cpath%20d%3D%22M0%20900%20600%20600M200%20900%20640%20600M500%20900%20680%20600M940%20900%20760%20600M1240%20900%20800%20600M1440%20900%20840%20600M0%20800h1440M0%20860h1440M300%20740h840%22/%3E%3C/g%3E%3C/svg%3E");background-size:cover;background-position:center;animation:none;opacity:1;z-index:0}
+body::after{background:radial-gradient(#9bdfff40 1px,transparent 1px);background-size:38px 38px;opacity:.3;mask-image:linear-gradient(90deg,#000,transparent 33%,transparent 67%,#000)}
+.card-frame{border-color:#75d9ff50;box-shadow:0 0 70px #178fdc17}
+.playlist-overlay{background:#050b17bd;backdrop-filter:blur(7px)}
+@media(max-width:640px){#playlist-panel,#rhythm-catalogue,#rhythm-top{padding:12px}#playlist-panel>.playlist-sheet,#rhythm-catalogue>.playlist-sheet,#rhythm-top>.playlist-sheet{max-height:calc(100dvh - 24px);padding:16px;border-radius:20px}#rhythm-track-list .song-stars,.song-summary .song-stars{font-size:23px;gap:2px}body::before{background-size:auto 100%;opacity:.65}.playlist-heading h2{font-size:22px}}
+
 </style>
 </head>
 <body>
