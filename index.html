@@ -230,6 +230,38 @@ body::after{background:radial-gradient(#9bdfff40 1px,transparent 1px);background
 
 #menu-wave{width:min(380px,90%);height:32px;flex:0 0 32px;opacity:.8}body:not(.preview-playing) #menu-wave{display:none}
 
+.insights-metrics{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:12px}.insights-metrics article strong{display:block;font-size:32px;color:#9de4d3}.insights-metrics article span{color:#acbdc4}.insights-scroll{overflow:auto;max-height:440px}.insights-scroll table{width:100%;border-collapse:collapse;font-size:13px}.insights-scroll th,.insights-scroll td{padding:12px;text-align:left;border-bottom:1px solid #ffffff15;white-space:nowrap}.insights-scroll th{position:sticky;top:0;background:#1c232c}.insights-scroll button{margin:4px;padding:7px;min-height:36px}.insights-scroll a{margin-right:8px}.directory-avatar{width:32px;height:32px;border-radius:50%;object-fit:cover;vertical-align:middle;margin-right:8px}.insights-chart{height:190px;display:flex;align-items:flex-end;gap:2px;border-bottom:1px solid #7899a955;padding-top:14px;overflow:hidden}.chart-bar{flex:1;min-width:1px;height:var(--h);min-height:2px;border:0;border-radius:3px 3px 0 0;background:linear-gradient(#82ead1,#528fc2);padding:0;cursor:pointer}.chart-bar:hover,.chart-bar:focus{background:#dcfafa;outline:1px solid white}.stats-choice{position:fixed;z-index:1000;bottom:12px;left:50%;transform:translateX(-50%);width:min(620px,calc(100% - 24px));box-sizing:border-box;padding:14px;border:1px solid #7bcbbc66;border-radius:14px;background:#15242ef5;color:#edf7ff;box-shadow:0 10px 40px #0008;font:13px/1.5 system-ui;display:flex;gap:10px;flex-wrap:wrap}.stats-choice span{flex-basis:100%}.stats-choice button{padding:9px 16px;border-radius:9px;border:1px solid #82acae55;background:#30474e;color:white;cursor:pointer}.stats-settings{position:fixed;bottom:3px;right:8px;font:10px system-ui;color:#93a5ae;background:#101821;border:0;border-radius:5px;padding:3px 6px;z-index:80;cursor:pointer}.game-open .stats-settings{display:none}#insights-filter,#id-search{display:flex;gap:10px;flex-wrap:wrap}#insights-filter select,#id-search input{max-width:100%;padding:10px}@media(max-width:640px){.insights-metrics{grid-template-columns:repeat(2,minmax(0,1fr))}.insights-scroll td,.insights-scroll th{padding:8px}.insights-chart{height:150px}}
+
+/* Shared controls: keep layout dimensions and native form semantics. */
+:root{--control-accent:#a3dce9;--control-edge:#a8bed333;--control-focus:#a4e5ff;--control-ink:#112333}
+body :is(.account-buttons,.account-side,.account-hero,.auth-accounts,.account-delete,.admin-tabs,.panel,.profile-card) :is(button,.button),body :is(.game-primary,.game-secondary,.game-top-button,.game-actions button,.preview-footer button,.music-mode-controls button,.site-tabs button,.link-btn,.personal-link){
+ border-radius:12px;border:1px solid var(--control-edge);font-family:inherit;font-weight:600;letter-spacing:.01em;cursor:pointer;transition:background-color .18s,border-color .18s,box-shadow .18s,transform .16s,color .18s; -webkit-tap-highlight-color:transparent;
+}
+body :is(.account-buttons,.account-side,.auth-accounts,.account-delete,.panel) :is(button,.button){min-height:42px;padding:10px 15px;line-height:1.3;background:linear-gradient(180deg,#344053,#252f40);color:#e6edf6;box-shadow:inset 0 1px #ffffff0b,0 3px 8px #0002}
+body :is(.primary,.button:not(.secondary),.game-primary){background:linear-gradient(135deg,#b7e6e7,#94bbef);border-color:#cff7ff80;color:var(--control-ink);box-shadow:inset 0 1px #ffffff80,0 5px 16px #579dd422}
+body :is(.account-side,.account-buttons,.panel,.auth-accounts) :is(.secondary,.text-button),body :is(.game-secondary,.game-top-button){background:linear-gradient(180deg,#2c384a,#202b3b);color:#dce8f7;border-color:#a8bed337}
+body .admin-tabs{gap:8px;padding:7px;border:1px solid #ffffff10;border-radius:17px;background:#11192380;display:flex;flex-wrap:wrap}
+body .admin-tabs a{padding:10px 14px;border-radius:11px;border:1px solid transparent;background:transparent;color:#b9c7d9;transition:background .18s,color .18s,box-shadow .18s;line-height:1.4}
+body .admin-tabs a.active,body .site-tabs button[aria-selected=true]{background:linear-gradient(135deg,#365269,#303e59);color:#e8faff;border-color:#9cdeed66;box-shadow:inset 0 1px #d5faff15,0 3px 9px #0002}
+body .account-buttons{gap:9px}.account-side>.button{margin:10px 0}
+body :is(.account-delete,.account-danger,.panel) :is(.danger,button[data-chat-action=purge]){color:#ffd0d5;background:linear-gradient(#57323d,#3b2633);border-color:#f295a44d}
+body :is(.game-top-button,.music-mode-controls button,.game-secondary)[aria-pressed=true]{border-color:#8bddf1;background:#254657;color:#c7f7ff}
+body :is(button,a.button,.link-btn,.personal-link,input,select,textarea):focus-visible,body .admin-tabs a:focus-visible{outline:2px solid var(--control-focus);outline-offset:3px;box-shadow:0 0 0 5px #67cde51a}
+@media(hover:hover){body :is(.account-buttons,.account-side,.auth-accounts,.account-delete,.panel) :is(button,.button):not(:disabled):hover,body :is(.game-primary,.game-secondary,.game-top-button,.music-mode-controls button,.link-btn,.personal-link):not(:disabled):hover{border-color:#bde7f390;box-shadow:inset 0 1px #ffffff18,0 5px 18px #0003;transform:translateY(-1px)}body .admin-tabs a:hover{color:white;background:#94c6e114}body :is(.primary,.button:not(.secondary),.game-primary):hover{background:linear-gradient(135deg,#ccf2f0,#a9cefa);color:#112333}}
+body :is(.account-buttons,.account-side,.auth-accounts,.account-delete,.panel) :is(button,.button):not(:disabled):active,body :is(.game-primary,.game-secondary,.game-top-button,.music-mode-controls button,.site-tabs button,.link-btn):not(:disabled):active{transform:translateY(1px);box-shadow:inset 0 2px 5px #0002}
+body button:disabled{cursor:not-allowed;opacity:.45;transform:none!important;box-shadow:none!important}
+/* An actual checkbox remains focusable and works with its label and Space. */
+body input[type=checkbox]{appearance:none;-webkit-appearance:none;box-sizing:border-box;display:inline-block;vertical-align:middle;width:22px;height:22px;min-width:22px;flex:0 0 22px;padding:0;margin:0 9px 0 0;border:1.5px solid #9fbbcf80;border-radius:7px;background:#101d2c;cursor:pointer;transition:background-color .16s,border-color .16s,box-shadow .16s}
+body input[type=checkbox]:checked{background-color:#9edce7;border-color:#c5f4f8;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='m6 12 4 4 8-9' fill='none' stroke='%23132636' stroke-width='2.7' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");background-size:20px;background-position:center;background-repeat:no-repeat;box-shadow:0 2px 8px #68cfe624}
+body input[type=checkbox]:indeterminate{background:#9edce7 linear-gradient(#132636,#132636) center/11px 2px no-repeat;border-color:#c5f4f8}
+body input[type=checkbox]:disabled{opacity:.4;cursor:not-allowed}body label:has(>input[type=checkbox]){cursor:pointer;line-height:1.5;padding-top:5px;padding-bottom:5px}body label:has(>input[type=checkbox]:disabled){cursor:not-allowed}
+body .account-delete label:has(input[type=checkbox]){display:flex;align-items:flex-start;gap:6px;padding:14px;border:1px solid #e8a4b139;border-radius:12px;background:#a9536a12;text-align:left}
+/* Charts and tiny icon controls keep their own geometry. */
+body .panel button.chart-bar{padding:0;min-height:0;border:0;border-radius:3px 3px 0 0;box-shadow:none;transform:none;background:linear-gradient(#82ead1,#528fc2)}
+@media(pointer:coarse){body :is(.account-buttons,.auth-accounts,.account-delete) button,body .admin-tabs a{min-height:44px}body label:has(>input[type=checkbox]){min-height:34px}}
+@media(prefers-reduced-motion:reduce){body button,body .button,body .admin-tabs a,body .link-btn,body .personal-link,body input[type=checkbox]{transition:none!important;transform:none!important}}
+@media(forced-colors:active){body input[type=checkbox]{appearance:auto;background:none;box-shadow:none}body :is(button,.button,.admin-tabs a){border:1px solid ButtonText}}
+
 </style>
 </head>
 <body>
@@ -820,7 +852,7 @@ async function startGame(){
   rememberDifficulty(chosen,chartInfo);notes=chartInfo.notes;activeSrc=chosen.src;activeTrack=chosen;
   $('game-chart-info').textContent='';
   runId=await startRankedRun(chosen);if(token!==operation)return;
-  offset=-2.1;elapsed=offset;state='running';show('running');$('game-song').disabled=false;$('rhythm-pick-song').disabled=false;
+  window.DCStats?.event('game_start','game');offset=-2.1;elapsed=offset;state='running';show('running');$('game-song').disabled=false;$('rhythm-pick-song').disabled=false;
   playBuffer();lastFrame=performance.now();frame=requestAnimationFrame(tick);
  }catch(error){if(token!==operation)return;state='setup';show('setup');$('game-start').disabled=false;$('game-song').disabled=false;$('rhythm-pick-song').disabled=false;$('game-start').textContent='Начать игру';setMessage(error.name==='AbortError'?'Загрузка прервалась. Попробуй ещё раз.':error.message&&error.name!=='TypeError'?error.message:'Не удалось загрузить аудио для анализа. Попробуй другую песню.');restorePlayer();}
 }
@@ -838,6 +870,7 @@ for(const id of ['music-play','music-prev','music-next'])$(id).addEventListener(
 function feedback(text,x,y,good){label=text;labelUntil=performance.now()+600;flash=good?1:.4;$('game-accessible').textContent=text+'. Очки '+score;
  if($('game-effects').checked&&!reduced.matches)for(let i=0;i<14;i++){const a=i*Math.PI*2/14;effects.push({x,y,vx:Math.cos(a)*(30+Math.random()*70),vy:Math.sin(a)*(30+Math.random()*70),life:.5,good});}}
 function finish(text,completed=true){
+ if(mode==='rhythm')window.DCStats?.event('game_finish','game');
  if(!completed)runId=null;
  if(mode==='rhythm'&&completed)for(const n of notes)if(n.status==='pending'||n.status==='holding'){n.status='miss';judgements.miss++;judged++;combo=0;}
  if(mode==='rhythm')score=core.normalScore({...judgements,miss:judgements.miss+Math.max(0,notes.length-judged)},maxCombo).score;
@@ -1055,5 +1088,17 @@ selectMode('rhythm');refreshSongs();metric();
 })();
 
 </script>
-</body>
+<script>(()=>{'use strict';
+const isCard=location.hostname==='vlad29gg.github.io',site=isCard?'card':'dontcry',base=isCard?'https://papachiz-game-7948828570.papachiz-music.workers.dev':'';
+let session='',allowed=false,lastPage='',startSeen=false;
+try{session=sessionStorage.getItem('dc-stats-session')||'';if(!/^[a-f0-9]{32}$/.test(session)){session=Array.from(crypto.getRandomValues(new Uint8Array(16)),x=>x.toString(16).padStart(2,'0')).join('');sessionStorage.setItem('dc-stats-session',session);}allowed=localStorage.getItem('dc-stats-choice')!=='no';}catch{}
+function emit(event,target='other'){if(!allowed||!session)return;const headers={'Content-Type':'application/json'};if(isCard)try{const token=localStorage.getItem('papachiz-account-token');if(/^[a-f0-9]{64}$/.test(token||''))headers.Authorization='Bearer '+token;}catch{}fetch(base+'/api/insights/event',{method:'POST',headers,credentials:isCard?'omit':'same-origin',body:JSON.stringify({site,event,target,session}),keepalive:true}).catch(()=>{});}
+window.DCStats={event:emit};
+window.addEventListener('storage',e=>{if(e.key==='dc-stats-choice')allowed=e.newValue!=='no';});
+emit('visit','home');
+window.addEventListener('hashchange',()=>{const p=location.hash.slice(1).split('?')[0]||'home';if(!p.startsWith('admin')&&p!==lastPage){lastPage=p;emit('page',p);}});
+document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;try{const u=new URL(a.href,location.href);if(u.origin===location.origin)return;const h=u.hostname;const target=/steam/.test(h)?'steam':/instagram/.test(h)?'instagram':/t.me|telegram/.test(h)?'telegram':/discord/.test(h)?'discord':/github/.test(h)?'github':'website';emit('click',target);}catch{}});
+if(isCard){document.querySelector('#home-tab')?.addEventListener('click',()=>emit('page','home'));document.querySelector('#game-tab')?.addEventListener('click',()=>emit('page','game'));}
+})();
+</script></body>
 </html>
