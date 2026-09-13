@@ -210,6 +210,18 @@ body::after{background:radial-gradient(#9bdfff40 1px,transparent 1px);background
 .playlist-overlay{background:#050b17bd;backdrop-filter:blur(7px)}
 @media(max-width:640px){#playlist-panel,#rhythm-catalogue,#rhythm-top{padding:12px}#playlist-panel>.playlist-sheet,#rhythm-catalogue>.playlist-sheet,#rhythm-top>.playlist-sheet{max-height:calc(100dvh - 24px);padding:16px;border-radius:20px}#rhythm-track-list .song-stars,.song-summary .song-stars{font-size:23px;gap:2px}body::before{background-size:auto 100%;opacity:.65}.playlist-heading h2{font-size:22px}}
 
+#game-result{justify-content:flex-start;overflow-y:auto;overflow-x:hidden;padding:18px 24px;gap:10px;background:radial-gradient(ellipse at 50% 10%,#354e754d,transparent 70%),#0b1425ed}
+#game-result:not([hidden]){animation:result-enter .4s ease-out}
+.result-badge{position:relative;width:200px;max-width:100%;height:112px;flex:0 0 112px;color:var(--rank-color,#58d8ef)}
+.result-badge svg{width:100%;height:100%;overflow:visible;fill:none;stroke-width:11;stroke-linecap:round}.rank-track{stroke:#ffffff12}#result-arc{stroke:var(--rank-color);stroke-dasharray:100;stroke-dashoffset:100;filter:drop-shadow(0 0 5px var(--rank-color));transition:stroke-dashoffset 1s ease-out}
+.result-badge>div{position:absolute;inset:43px 0 0;display:flex;flex-direction:column;align-items:center;gap:3px}.result-badge strong{font-size:23px}.result-badge span{font-size:16px;color:#e5efff}
+.result-counts{display:grid;grid-template-columns:repeat(4,1fr);gap:8px;width:min(500px,100%)}.result-counts>div{padding:9px 6px;border:1px solid #83b9df30;border-radius:12px;background:#314a652b;animation:result-enter .6s ease-out}.result-counts strong,.result-counts span{display:block}.result-counts strong{font-size:21px;color:#a8eaff}.result-counts span{font-size:11px;color:#b8c8dc}
+.result-top{width:min(500px,100%);text-align:left;border:1px solid #ffffff18;border-radius:14px;padding:12px;background:#18263b80}.result-top-heading{display:flex;align-items:center;gap:8px;flex-wrap:wrap}.result-top-heading>strong{margin-right:auto}.result-top-heading button{font-size:12px;min-height:34px;padding:6px 10px}.result-top ol{padding:0;margin:8px 0 0;list-style:none}.result-top li{display:flex;justify-content:space-between;gap:12px;padding:7px 0;border-top:1px solid #ffffff0f;font-size:13px}.result-top li span{overflow:hidden;text-overflow:ellipsis;white-space:nowrap}.result-top li strong{color:#99dbff}.result-top p:empty{display:none}#game-result #result-top-status{font-size:12px;margin:5px 0}
+#game-result .game-actions{flex-shrink:0}#game-result-text{font-variant-numeric:tabular-nums;color:#e6f3ff}#game-canvas{background:radial-gradient(ellipse at 50% 40%,#1c35554a,transparent 75%)}
+@keyframes result-enter{from{opacity:0;transform:translateY(14px) scale(.98)}to{opacity:1;transform:none}}
+@media(max-width:640px){#game-result{padding:14px 12px;gap:8px}.result-badge{width:168px;height:95px;flex-basis:95px}.result-badge>div{inset:34px 0 0}.result-badge strong{font-size:20px}.result-counts{gap:5px}}
+@media(prefers-reduced-motion:reduce){#game-result,.result-counts>div{animation:none!important}#result-arc{transition:none}}
+
 </style>
 </head>
 <body>
@@ -254,7 +266,7 @@ body::after{background:radial-gradient(#9bdfff40 1px,transparent 1px);background
    <div id="game-message" class="game-message" role="status"></div><p id="rhythm-auth-status" class="game-message" role="status"></p>
   </div>
   <div class="game-center" id="game-pause-panel" hidden><h3>Пауза</h3><p>Игра и музыка на паузе.</p><div class="game-actions"><button type="button" class="game-primary" id="game-resume">Продолжить</button><button type="button" class="game-secondary" id="game-restart-paused">Заново</button></div></div>
-  <div class="game-center" id="game-result" hidden><h3 id="game-result-title">Результат</h3><p id="game-result-text"></p><p class="result-details" id="game-best"></p><form class="rank-submit" id="rank-submit" hidden><input id="rank-nickname" aria-label="Ник для топа" placeholder="Твой ник в топе" minlength="2" maxlength="24" autocomplete="nickname" required><button type="submit" class="game-secondary" id="rank-submit-button">В топ ↗</button></form><p class="rank-submit-status" id="rank-submit-status" role="status"></p><div class="game-actions"><button type="button" class="game-primary" id="game-again">Ещё раз</button><button type="button" class="game-secondary" id="game-change">Сменить режим</button></div></div>
+  <div class="game-center" id="game-result" hidden><h3 id="game-result-title">Результат</h3><div id="result-badge" class="result-badge"><svg viewBox="0 0 240 135" aria-hidden="true"><path class="rank-track" d="M20 120 A100 100 0 0 1 220 120"/><path id="result-arc" d="M20 120 A100 100 0 0 1 220 120" pathLength="100"/></svg><div><strong id="result-rank"></strong><span id="result-accuracy"></span></div></div><p id="game-result-text"></p><div id="result-counts" class="result-counts"></div><section class="result-top"><div class="result-top-heading"><strong>Топ песни</strong><button type="button" id="result-full-top" class="game-secondary">Топ‑20 ↗</button><button type="button" id="result-login" class="game-secondary">Войти / регистрация</button></div><p id="result-top-status" role="status"></p><ol id="result-top-list"></ol></section><p class="result-details" id="game-best"></p><form class="rank-submit" id="rank-submit" hidden><input id="rank-nickname" aria-label="Ник для топа" placeholder="Твой ник в топе" minlength="2" maxlength="24" autocomplete="nickname" required><button type="submit" class="game-secondary" id="rank-submit-button">В топ ↗</button></form><p class="rank-submit-status" id="rank-submit-status" role="status"></p><div class="game-actions"><button type="button" class="game-primary" id="game-again">Ещё раз</button><button type="button" class="game-secondary" id="game-change">Сменить режим</button></div></div>
  <div class="game-progress" id="game-progress"></div></div>
  <footer class="game-bottom"><p class="game-hint" id="game-hint">Наведи + пробел / касание</p><div class="game-bottom-controls"><button type="button" class="game-top-button" id="rhythm-top-open">Топ</button><label class="effects-control" hidden><input id="game-effects" type="checkbox" checked>Эффекты</label><button type="button" class="game-secondary" id="game-pause" disabled aria-label="Пауза игры">Пауза</button></div></footer>
  <span class="sr-only" role="status" id="game-accessible"></span>
@@ -616,8 +628,8 @@ var PLAYLIST = [
 'use strict';
 const clamp=(n,a,b)=>Math.max(a,Math.min(b,n));
 function speed(seconds){return .43+.005*Math.max(0,seconds)+.026*Math.sqrt(Math.max(0,seconds));}
-function approach(seconds,stars=3){return 1.95-clamp(stars,1,5)*.075;}
-function judge(error){const ms=Math.abs(error)*1000;return ms<=65?300:ms<=125?150:ms<=190?50:0;}
+function approach(seconds,stars=3){return 1.55-clamp(stars,1,5)*.05;}
+function judge(error){const ms=Math.abs(error)*1000;return ms<=90?300:ms<=165?150:ms<=240?50:0;}
 function fft(re,im){const n=re.length;for(let i=1,j=0;i<n;i++){let bit=n>>1;for(;j&bit;bit>>=1)j^=bit;j^=bit;if(i<j){[re[i],re[j]]=[re[j],re[i]];}}
  for(let length=2;length<=n;length<<=1){const angle=-2*Math.PI/length,wr=Math.cos(angle),wi=Math.sin(angle);for(let i=0;i<n;i+=length){let ur=1,ui=0;for(let j=0;j<length/2;j++){let a=i+j,b=a+length/2,vr=re[b]*ur-im[b]*ui,vi=re[b]*ui+im[b]*ur;re[b]=re[a]-vr;im[b]=im[a]-vi;re[a]+=vr;im[a]+=vi;let t=ur*wr-ui*wi;ui=ur*wi+ui*wr;ur=t;}}}}
 function analyse(samples,rate){
@@ -654,8 +666,8 @@ function chart(samples,rate){
   const x=last.x+dx*factor,y=last.y+dy*factor,angle=Math.atan2(dy,dx);
   const gap=(peaks[i+1]?.time??p.time+.3)-p.time;
   let sustain=0,frames=0;for(let j=Math.floor((p.time+.08)*rate);j<Math.min(samples.length,(p.time+Math.min(gap,.65))*rate);j+=128){sustain+=samples[j]*samples[j];frames++;}
-  const slider=gap>.50&&frames>0&&Math.sqrt(sustain/frames)>.009&&i%4===(seed%4);
-  const note={...p,x,y,index:i,type:slider?'slider':'circle',duration:slider?Math.min(1.05,gap*.83):0,status:'pending'};
+  const slider=gap>.85&&frames>0&&Math.sqrt(sustain/frames)>.009&&i%4===(seed%4);
+  const note={...p,x,y,index:i,type:slider?'slider':'circle',duration:slider?Math.min(1.05,gap-.45):0,status:'pending'};
   if(slider){const a=angle+Math.PI*.4;note.ex=clamp(x+Math.cos(a)*.30,.16,.84);note.ey=clamp(y+Math.sin(a)*.28,.19,.78);note.cx=clamp((x+note.ex)/2+Math.cos(a+1.57)*.12,.12,.88);note.cy=clamp((y+note.ey)/2+Math.sin(a+1.57)*.12,.14,.83);last={x:note.ex,y:note.ey};}else last={x,y};notes.push(note);
  });
  const histogram=new Float32Array(201);for(let i=0;i<peaks.length;i++)for(let j=i+1;j<Math.min(i+5,peaks.length);j++){let interval=peaks[j].time-peaks[i].time;if(interval>.25&&interval<2){let bpm=60/interval;while(bpm<85)bpm*=2;while(bpm>180)bpm/=2;histogram[Math.round(bpm)]++;}}
@@ -666,7 +678,7 @@ function difficulty(notes,duration){
  const density=notes.length/Math.max(1,duration);let burst=0,left=0;for(let i=0;i<notes.length;i++){while(notes[i].time-notes[left].time>5)left++;burst=Math.max(burst,(i-left+1)/5);}
  const slides=notes.filter(n=>n.type==='slider').length/Math.max(1,notes.length),load=density*.7+burst*.3+slides*.2;
  const stars=load<.65?1:load<.88?2:load<1.12?3:load<1.37?4:5;
- return{stars,density:Math.round(density*100)/100,failAt:[40,45,50,55,60][stars-1],lead:approach(0,stars)};
+ return{stars,density:Math.round(density*100)/100,failAt:[35,40,45,50,55][stars-1],lead:approach(0,stars)};
 }
 function normalScore(counts,maxCombo){const total=counts.perfect+counts.good+counts.meh+counts.miss,hit=counts.perfect+counts.good+counts.meh;const accuracy=total?(counts.perfect*300+counts.good*150+counts.meh*50)/(total*300):0;return{score:Math.round(50000*accuracy*(.9+.1*(total?Math.min(maxCombo,hit)/total:0))),accuracy:Math.round(accuracy*10000)/100};}
 root.PapachizRhythm={clamp,speed,approach,judge,analyse,chart,difficulty,pathPoint,normalScore};
@@ -678,7 +690,7 @@ root.PapachizRhythm={clamp,speed,approach,judge,analyse,chart,difficulty,pathPoi
 'use strict';
 const $=id=>document.getElementById(id),core=window.PapachizRhythm;
 const panel=$('game-panel'),arena=$('game-arena'),canvas=$('game-canvas'),ctx=canvas.getContext('2d');
-const difficultyCache=Object.assign({},{"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6298|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6298?v=1789158974|286":{"stars":4,"failAt":55,"density":1.1},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6297||196":{"stars":3,"failAt":50,"density":0.88},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6296||195":{"stars":3,"failAt":50,"density":0.77},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6293||168":{"stars":4,"failAt":55,"density":0.94},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6292||52":{"stars":4,"failAt":55,"density":0.94},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6291|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6291?v=1788875951|231":{"stars":4,"failAt":55,"density":0.97},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6290||241":{"stars":4,"failAt":55,"density":0.95},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6289||266":{"stars":3,"failAt":50,"density":0.8},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6288||245":{"stars":4,"failAt":55,"density":1.03},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6287||139":{"stars":3,"failAt":50,"density":0.85},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6286||101":{"stars":3,"failAt":50,"density":0.92},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6285||107":{"stars":3,"failAt":50,"density":0.93},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6284|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6284?v=1788814042|132":{"stars":2,"failAt":45,"density":0.69},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6283|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6283?v=1788813878|154":{"stars":2,"failAt":45,"density":0.67},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6282|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6282?v=1788813547|98":{"stars":3,"failAt":50,"density":0.87},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6279|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6279?v=1788813141|94":{"stars":4,"failAt":55,"density":1.05},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6278|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6278?v=1788814865|133":{"stars":3,"failAt":50,"density":0.91},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6277|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6277?v=1788807904|132":{"stars":4,"failAt":55,"density":1.06},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6276|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6276?v=1788807904|193":{"stars":3,"failAt":50,"density":0.82},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6275|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6275?v=1788807904|291":{"stars":3,"failAt":50,"density":0.92},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6274|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6274?v=1788807904|85":{"stars":3,"failAt":50,"density":0.8},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6273|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6273?v=1788807904|85":{"stars":3,"failAt":50,"density":0.84}});try{Object.assign(difficultyCache,JSON.parse(localStorage.getItem('papachiz-ratings-pulse-3')||'{}'));}catch(_){}
+const difficultyCache=Object.assign({},{"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6298|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6298?v=1789158974|286":{"stars":4,"failAt":50,"density":1.1},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6297||196":{"stars":3,"failAt":45,"density":0.88},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6296||195":{"stars":3,"failAt":45,"density":0.77},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6293||168":{"stars":3,"failAt":45,"density":0.94},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6292||52":{"stars":3,"failAt":45,"density":0.94},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6291|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6291?v=1788875951|231":{"stars":4,"failAt":50,"density":0.97},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6290||241":{"stars":3,"failAt":45,"density":0.95},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6289||266":{"stars":3,"failAt":45,"density":0.8},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6288||245":{"stars":4,"failAt":50,"density":1.03},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6287||139":{"stars":3,"failAt":45,"density":0.85},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6286||101":{"stars":3,"failAt":45,"density":0.92},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6285||107":{"stars":3,"failAt":45,"density":0.93},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6284|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6284?v=1788814042|132":{"stars":2,"failAt":40,"density":0.69},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6283|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6283?v=1788813878|154":{"stars":2,"failAt":40,"density":0.67},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6282|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6282?v=1788813547|98":{"stars":3,"failAt":45,"density":0.87},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6279|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6279?v=1788813141|94":{"stars":4,"failAt":50,"density":1.05},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6278|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6278?v=1788814865|133":{"stars":3,"failAt":45,"density":0.91},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6277|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6277?v=1788807904|132":{"stars":4,"failAt":50,"density":1.06},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6276|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6276?v=1788807904|193":{"stars":3,"failAt":45,"density":0.82},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6275|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6275?v=1788807904|291":{"stars":3,"failAt":45,"density":0.92},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6274|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6274?v=1788807904|85":{"stars":3,"failAt":45,"density":0.8},"https://papachiz-music-7948828570.papachiz-music.workers.dev/audio/6273|https://papachiz-music-7948828570.papachiz-music.workers.dev/cover/6273?v=1788807904|85":{"stars":3,"failAt":45,"density":0.84}});try{Object.assign(difficultyCache,JSON.parse(localStorage.getItem('papachiz-ratings-comfort-6')||'{}'));}catch(_){}
 let previewController=null,cataloguePurpose='play';
 let chartWorker=null,chartInfo=null,activeTrack=null,runId=null;
 let aim={x:0,y:0,valid:false},held=new Set(),judgements={perfect:0,good:0,meh:0,miss:0};
@@ -790,15 +802,41 @@ function finish(text,completed=true){
  let best=score;try{const key='papachiz-pulse-best-'+(mode==='rhythm'?'pulse-3-':'')+mode+(mode==='rhythm'?'-'+activeSrc:'');best=Math.max(score,Number(localStorage.getItem(key))||0);if(mode!=='rhythm'||completed)localStorage.setItem(key,String(best));}catch(_){}
  $('game-best').textContent='Твой рекорд здесь: '+best.toLocaleString('ru-RU');$('rank-submit').hidden=mode!=='rhythm'||!completed;$('rank-submit-button').disabled=!runId;
  $('rank-submit-status').textContent=mode==='rhythm'&&!completed?'Этот заход не отправлен в топ.':mode==='rhythm'?(runId?'Можно сохранить результат в общем топе этой песни.':'Общий топ пока недоступен. Личный рекорд сохранён здесь.') : '';
- $('game-again').focus();metric();draw();if(mode==='rhythm'&&completed&&accountUser&&runId){$('rank-submit').hidden=true;$('rank-submit').dispatchEvent(new Event('submit',{cancelable:true}));}
+ presentResult(completed);$('game-again').focus();metric();draw();if(mode==='rhythm'&&completed&&accountUser&&runId){$('rank-submit').hidden=true;$('rank-submit').dispatchEvent(new Event('submit',{cancelable:true}));}
 }
+
+let resultRequest=0;
+function presentResult(completed){
+ const accuracy=core.normalScore(judgements,maxCombo).accuracy;
+ const ranks=[['Кадет','#f6cd68'],['Сержант','#98df92'],['Лейтенант','#58d8ef'],['Капитан','#739cff'],['Маршал','#bd86ff']];
+ const level=accuracy>=95?4:accuracy>=85?3:accuracy>=70?2:accuracy>=55?1:0;
+ const badge=$('result-badge');badge.style.setProperty('--rank-color',ranks[level][1]);
+ $('result-rank').textContent=completed?ranks[level][0]:'Попробуем ещё';
+ $('result-accuracy').textContent=accuracy.toFixed(1)+'%';
+ $('result-arc').style.strokeDashoffset=String(100-accuracy);if(!reduced.matches&&$('result-arc').animate)$('result-arc').animate([{strokeDashoffset:100},{strokeDashoffset:100-accuracy}],{duration:1000,easing:'ease-out'});
+ $('result-counts').textContent='';
+ for(const [key,name] of [['perfect','Идеально'],['good','В ритм'],['meh','Почти'],['miss','Промахи']]){const item=document.createElement('div'),value=document.createElement('strong'),label=document.createElement('span');value.textContent=String(judgements[key]);label.textContent=name;item.appendChild(value);item.appendChild(label);$('result-counts').appendChild(item);}
+ $('result-login').hidden=!!accountUser;
+ loadResultTop();
+}
+async function loadResultTop(){
+ const request=++resultRequest,id=trackId(selectedTrack()),list=$('result-top-list');list.textContent='';
+ $('result-top-status').textContent='Загружаю топ…';if(!id){$('result-top-status').textContent='Топ недоступен.';return;}
+ try{const data=await rankRequest('/rhythm/top?track='+encodeURIComponent(id)+'&v=pulse-3');if(request!==resultRequest||state!=='result')return;
+ const rows=Array.isArray(data.entries)?data.entries.slice(0,3):[];$('result-top-status').textContent=rows.length?'':'Пока без рекордов.';
+ rows.forEach((row,i)=>{const li=document.createElement('li'),name=document.createElement('span'),points=document.createElement('strong');name.textContent=(i+1)+'. '+row.nickname;points.textContent=Number(row.score).toLocaleString('ru-RU');li.appendChild(name);li.appendChild(points);list.appendChild(li);});
+ }catch(_){if(request===resultRequest)$('result-top-status').textContent='Топ временно недоступен.';}
+}
+$('result-login').addEventListener('click',()=>$('rhythm-login').click());
+$('result-full-top').addEventListener('click',openRanking);
+
 function miss(){combo=0;judged++;if(mode==='rhythm')judgements.miss++;if(mode==='lane'){lives--;if(lives<=0){finish('Ещё один заход?');return;}}feedback('Мимо',width*.5,height*.4,false);metric();}
 function award(note,points){note.status=points?'hit':'miss';if(!points){miss();return;}judged++;hitCount+=points/300;judgements[points===300?'perfect':points===150?'good':'meh']++;combo++;maxCombo=Math.max(maxCombo,combo);score=core.normalScore({...judgements,miss:judgements.miss+Math.max(0,notes.length-judged)},maxCombo).score;feedback(points===300?'Идеально':points===150?'В ритм':'Почти',note.x*width,note.y*height,true);metric();}
 function laneHit(){if(state!=='running'||mode!=='lane'||elapsed-lastTap<.13||passHit)return;lastTap=elapsed;passHit=true;const pos=1-Math.abs(phase%2-1),zone=Math.max(.105,.19-score/140000);const delta=Math.abs(pos-target);
  if(delta<=zone*.5){combo++;maxCombo=Math.max(maxCombo,combo);score+=Math.round(100*(1+Math.min(combo,50)*.08)*(delta<zone*.16?1.5:1));feedback(delta<zone*.16?'Идеально':'Есть!',width*(.1+.8*pos),height*.48,true);}else miss();metric();}
 function rhythmHit(){if(state!=='running'||mode!=='rhythm'||!aim.valid)return;
- const now=audioTime()-calibration();let best=null,distance=.191;
- for(let i=Math.max(0,missIndex-2);i<notes.length;i++){const n=notes[i];if(n.time>now+.20)break;if(n.status!=='pending')continue;const d=Math.abs(n.time-now);if(d<distance&&Math.hypot(n.x*width-aim.x,n.y*height-aim.y)<=noteRadius()+8){best=n;distance=d;}}
+ const now=audioTime()-calibration();let best=null,distance=.241;
+ for(let i=Math.max(0,missIndex-2);i<notes.length;i++){const n=notes[i];if(n.time>now+.24)break;if(n.status!=='pending')continue;const d=Math.abs(n.time-now);if(d<distance&&Math.hypot(n.x*width-aim.x,n.y*height-aim.y)<=noteRadius()+8){best=n;distance=d;}}
  if(!best){combo=0;metric();return;}const points=core.judge(distance);
  if(best.type==='slider'){best.status='holding';best.headPoints=points;best.follow=0;best.total=0;feedback('Держи и веди',best.x*width,best.y*height,true);}else award(best,points);
 }
@@ -824,18 +862,18 @@ function tick(time){if(state!=='running')return;const dt=Math.min(.06,Math.max(0
   for(let i=Math.max(0,missIndex-8);i<notes.length;i++){
    const n=notes[i];if(n.time>now+1.5)break;
    if(n.status==='holding'){
-    if(now>=n.time&&now<n.time+n.duration){const u=(now-n.time)/n.duration,p=core.pathPoint(n,u);n.total+=dt;if(held.size&&aim.valid&&Math.hypot(p.x*width-aim.x,p.y*height-aim.y)<noteRadius()*1.7)n.follow+=dt;}
-    if(now>=n.time+n.duration){const ratio=n.total?n.follow/n.total:0;award(n,ratio>=.8?n.headPoints:ratio>=.55?Math.min(n.headPoints,150):0);}
-   }else if(n.status==='pending'&&n.time<now-.195){n.status='miss';miss();}
+    if(now>=n.time&&now<n.time+n.duration){const u=(now-n.time)/n.duration,p=core.pathPoint(n,u);n.total+=dt;if(held.size&&aim.valid&&Math.hypot(p.x*width-aim.x,p.y*height-aim.y)<noteRadius()*1.9)n.follow+=dt;}
+    if(now>=n.time+n.duration){const ratio=n.total?n.follow/n.total:0;award(n,ratio>=.7?n.headPoints:ratio>=.45?Math.min(n.headPoints,150):0);}
+   }else if(n.status==='pending'&&n.time<now-.245){n.status='miss';miss();}
   }
   while(missIndex<notes.length&&['hit','miss'].includes(notes[missIndex].status))missIndex++;
   $('game-progress').style.width=core.clamp(Math.max(0,elapsed)/buffer.duration*100,0,100)+'%';
 
  }
- if(mode==='rhythm'&&state==='running'&&elapsed>=12&&judged>=12&&core.normalScore(judgements,maxCombo).accuracy<(chartInfo?.failAt||50)){finish('Не хватило точности',false);return;}
+ if(mode==='rhythm'&&state==='running'&&elapsed>=16&&judged>=14&&core.normalScore(judgements,maxCombo).accuracy<(chartInfo?.failAt||50)){finish('Не хватило точности',false);return;}
  effects.forEach(p=>{p.x+=p.vx*dt;p.y+=p.vy*dt;p.life-=dt;});effects=effects.filter(p=>p.life>0);flash=Math.max(0,flash-dt*3);metric();draw();if(state==='running')frame=requestAnimationFrame(tick);
 }
-function noteRadius(){return Math.max(28,Math.min(43,width*.075,height*.14));}
+function noteRadius(){return Math.max(30,Math.min(48,width*.082,height*.15));}
 function circle(x,y,r,color,line=0){ctx.beginPath();ctx.arc(x,y,r,0,Math.PI*2);if(line){ctx.lineWidth=line;ctx.strokeStyle=color;ctx.stroke();}else{ctx.fillStyle=color;ctx.fill();}}
 function draw(){ctx.clearRect(0,0,width,height);ctx.fillStyle='#9ab7ca0b';for(let x=24;x<width;x+=32)for(let y=24;y<height;y+=32){ctx.fillRect(x,y,1,1);}
  if(mode==='lane'){
@@ -853,9 +891,9 @@ function draw(){ctx.clearRect(0,0,width,height);ctx.fillStyle='#9ab7ca0b';for(le
    if(n.type==='slider'){
     ctx.beginPath();ctx.moveTo(x,y);ctx.quadraticCurveTo(n.cx*width,n.cy*height,n.ex*width,n.ey*height);ctx.lineCap='round';ctx.lineWidth=radius*1.5+6;ctx.strokeStyle='#90d8e149';ctx.stroke();ctx.lineWidth=radius*1.5;ctx.strokeStyle='#1b344b';ctx.stroke();
     circle(n.ex*width,n.ey*height,radius*.55,'#afd7df35',2);
-    if(n.status==='holding'){const p=core.pathPoint(n,(now-n.time)/n.duration),following=held.size&&Math.hypot(p.x*width-aim.x,p.y*height-aim.y)<radius*1.7;ctx.shadowColor=accent;ctx.shadowBlur=$('game-effects').checked?18:0;circle(p.x*width,p.y*height,radius*.67,following?accent:'#bf8196');ctx.shadowBlur=0;circle(p.x*width,p.y*height,radius*1.6,following?'#aae9eb55':'#d69d9d44',2);continue;}
+    if(n.status==='holding'){const p=core.pathPoint(n,(now-n.time)/n.duration),following=held.size&&Math.hypot(p.x*width-aim.x,p.y*height-aim.y)<radius*1.9;ctx.shadowColor=accent;ctx.shadowBlur=$('game-effects').checked?18:0;circle(p.x*width,p.y*height,radius*.67,following?accent:'#bf8196');ctx.shadowBlur=0;circle(p.x*width,p.y*height,radius*1.6,following?'#aae9eb55':'#d69d9d44',2);continue;}
    }
-   ctx.shadowColor=accent;ctx.shadowBlur=$('game-effects').checked&&!reduced.matches?12:0;circle(x,y,radius,'#18293e');ctx.shadowBlur=0;circle(x,y,radius*.82,accent+'15');circle(x,y,radius,accent,2);circle(x,y,radius*(1+remaining*1.3),'#ffb18c'+(Math.round((1-remaining*.55)*200).toString(16).padStart(2,'0')),2);ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='650 '+Math.round(radius*.58)+'px -apple-system, sans-serif';ctx.fillStyle='#ecf9ff';ctx.fillText(String(n.index+1),x,y);ctx.textBaseline='alphabetic';
+   ctx.shadowColor=accent;ctx.shadowBlur=$('game-effects').checked&&!reduced.matches?20:0;circle(x,y,radius,'#18293e');ctx.shadowBlur=0;circle(x,y,radius*.82,accent+'30');circle(x,y,radius,accent,2);circle(x,y,radius*(1+remaining*1.3),'#ffb18c'+(Math.round((1-remaining*.55)*200).toString(16).padStart(2,'0')),2);ctx.textAlign='center';ctx.textBaseline='middle';ctx.font='650 '+Math.round(radius*.58)+'px -apple-system, sans-serif';ctx.fillStyle='#ecf9ff';ctx.fillText(String(n.index+1),x,y);ctx.textBaseline='alphabetic';
   }
   if(aim.valid&&state==='running'){circle(aim.x,aim.y,5,'#fff5dc');circle(aim.x,aim.y,held.size?14:10,'#ffcb9a99',2);}
   if(now<0){ctx.font='700 38px -apple-system, sans-serif';ctx.textAlign='center';ctx.fillStyle='#ffbd98';ctx.fillText('Лови ритм',width*.5,height*.48);}
@@ -919,12 +957,12 @@ async function openRanking(){
 }
 $('rhythm-top-open').addEventListener('click',openRanking);$('rhythm-top-setup').addEventListener('click',openRanking);$('top-three').addEventListener('click',()=>{rankingMode=3;showRanking();});$('top-twenty').addEventListener('click',()=>{rankingMode=20;showRanking();});
 try{$('rank-nickname').value=localStorage.getItem('papachiz-rhythm-name')||'';}catch(_){}
-$('rank-submit').addEventListener('submit',async e=>{e.preventDefault();if(!runId||mode!=='rhythm'||state!=='result')return;const nickname=accountUser?accountUser.name:$('rank-nickname').value.trim();if(!accountUser&&(nickname.length<2||nickname.length>24)){$('rank-submit-status').textContent='Ник должен содержать от 2 до 24 символов.';return;}const submittedRun=runId;$('rank-submit-button').disabled=true;$('rank-submit-status').textContent='Сохраняю результат…';try{await rankRequest('/rhythm/score',{token:playerToken(),run:runId,nickname,counts:judgements,combo:maxCombo});if(runId!==submittedRun||state!=='result')return;runId=null;try{localStorage.setItem('papachiz-rhythm-name',nickname);}catch(_){}$('rank-submit-status').textContent='Готово. В топе остаётся твой лучший результат на этой песне.';}catch(error){if(runId!==submittedRun||state!=='result')return;$('rank-submit').hidden=false;$('rank-submit-button').disabled=false;$('rank-submit-status').textContent=error.name==='AbortError'?'Сервер не ответил. Попробуй сохранить ещё раз.':error.message;}});
+$('rank-submit').addEventListener('submit',async e=>{e.preventDefault();if(!runId||mode!=='rhythm'||state!=='result')return;const nickname=accountUser?accountUser.name:$('rank-nickname').value.trim();if(!accountUser&&(nickname.length<2||nickname.length>24)){$('rank-submit-status').textContent='Ник должен содержать от 2 до 24 символов.';return;}const submittedRun=runId;$('rank-submit-button').disabled=true;$('rank-submit-status').textContent='Сохраняю результат…';try{await rankRequest('/rhythm/score',{token:playerToken(),run:runId,nickname,counts:judgements,combo:maxCombo});if(runId!==submittedRun||state!=='result')return;runId=null;try{localStorage.setItem('papachiz-rhythm-name',nickname);}catch(_){}$('rank-submit-status').textContent='Результат сохранён.';loadResultTop();}catch(error){if(runId!==submittedRun||state!=='result')return;$('rank-submit').hidden=false;$('rank-submit-button').disabled=false;$('rank-submit-status').textContent=error.name==='AbortError'?'Сервер не ответил. Попробуй сохранить ещё раз.':error.message;}});
 
 function ratingKey(t){return t.src+'|'+(t.cover||'')+'|'+(t.duration||0);}
 function starColor(stars){return ['#f6cd68','#e4ce89','#8cd2df','#83a4fa','#bb91f7'][Math.max(0,Math.min(4,stars-1))];}
 function rating(t){return t?difficultyCache[ratingKey(t)]:null;}
-function rememberDifficulty(t,info){difficultyCache[ratingKey(t)]={stars:info.stars,failAt:info.failAt,density:info.density};try{localStorage.setItem('papachiz-ratings-pulse-3',JSON.stringify(difficultyCache));}catch(_){}updateSongCard();}
+function rememberDifficulty(t,info){difficultyCache[ratingKey(t)]={stars:info.stars,failAt:info.failAt,density:info.density};try{localStorage.setItem('papachiz-ratings-comfort-6',JSON.stringify(difficultyCache));}catch(_){}updateSongCard();}
 function starsIn(container,t){const info=rating(t);container.textContent='';container.className='song-stars';container.style.color=info?starColor(info.stars):'#8092a6';container.setAttribute('aria-label',info?'Сложность '+info.stars+' из 5':'Сложность ещё не определена');for(let i=1;i<=5;i++){const star=document.createElement('span');star.textContent='★';star.style.opacity=info&&i<=info.stars?'1':'.22';star.setAttribute('aria-hidden','true');container.appendChild(star);}container.title=info?info.stars+' / 5':'Нажми «Разобрать»';}
 async function inspectDifficulty(t,button){
  if(previewController||state==='loading'||state==='running')return;
