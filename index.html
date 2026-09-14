@@ -262,6 +262,20 @@ body .panel button.chart-bar{padding:0;min-height:0;border:0;border-radius:3px 3
 @media(prefers-reduced-motion:reduce){body button,body .button,body .admin-tabs a,body .link-btn,body .personal-link,body input[type=checkbox]{transition:none!important;transform:none!important}}
 @media(forced-colors:active){body input[type=checkbox]{appearance:auto;background:none;box-shadow:none}body :is(button,.button,.admin-tabs a){border:1px solid ButtonText}}
 
+/* Motion stays on composited properties; gameplay targets are excluded. */
+:root{--motion-ease:cubic-bezier(.22,1,.36,1)}
+.motion-selection{position:fixed;z-index:80;pointer-events:none;border:1px solid #b1e6ff99;border-radius:12px;box-shadow:0 0 18px #72c6ff18,inset 0 0 12px #8adaff0a;transform-origin:0 0;box-sizing:border-box}
+body:has(dialog[open],.playlist-overlay:not([hidden])) .motion-selection{visibility:hidden}
+body :is(.top nav a,.admin-tabs a,.site-tabs button,.link-btn,.personal-link,.account-buttons button,.account-buttons .button,.panel button,.game-primary,.game-secondary){transition:transform 260ms var(--motion-ease),background-color 260ms ease,border-color 260ms ease,box-shadow 300ms ease,color 200ms ease;backface-visibility:hidden}
+@media(hover:hover){body :is(.link-btn,.personal-link,.account-buttons button,.account-buttons .button,.game-primary,.game-secondary):hover{transform:translateY(-2px);box-shadow:0 7px 20px #07122235,inset 0 1px #ffffff18}body :is(.top nav a,.admin-tabs a):hover .nav-icon{transform:translateX(2px)}}
+body :is(.top nav a,.admin-tabs a,.site-tabs button,.link-btn,.personal-link,.account-buttons button,.panel button,.game-primary,.game-secondary):active{transform:translateY(1px) scale(.98);transition-duration:90ms}
+.nav-icon{transition:transform 300ms var(--motion-ease)}
+body .reveal{transition:opacity 500ms var(--motion-ease),transform 550ms var(--motion-ease)}
+body :is(.track-choice,.playlist-track){transition:background-color 240ms ease,border-color 240ms ease,box-shadow 240ms ease}
+body input[type=checkbox]{transition:background-color 180ms ease,border-color 180ms ease,box-shadow 240ms ease,transform 200ms var(--motion-ease)}
+body input[type=checkbox]:active{transform:scale(.9)}
+@media(prefers-reduced-motion:reduce){.motion-selection{display:none}body :is(.reveal,.nav-icon,input[type=checkbox],.top nav a,.admin-tabs a,.site-tabs button,.link-btn,.personal-link,.account-buttons button,.panel button,.game-primary,.game-secondary){transition:none!important;animation:none!important;transform:none!important}}
+
 </style>
 </head>
 <body>
@@ -802,9 +816,7 @@ $('mode-lane').addEventListener('click',()=>selectMode('lane'));$('mode-rhythm')
 function activateGameNow(){isGameView=true;document.body.classList.add('game-open');$('home-panel').hidden=true;panel.hidden=false;$('home-tab').setAttribute('aria-selected','false');$('home-tab').tabIndex=-1;$('game-tab').setAttribute('aria-selected','true');$('game-tab').tabIndex=0;refreshSongs();resize();}
 function activateHomeNow(){stopPreview();if(state==='running')pauseGame();if(state==='loading')setup();isGameView=false;restorePlayer();document.body.classList.remove('game-open');panel.hidden=true;$('home-panel').hidden=false;$('home-tab').setAttribute('aria-selected','true');$('home-tab').tabIndex=0;$('game-tab').setAttribute('aria-selected','false');$('game-tab').tabIndex=-1;}
 let viewTransition=0;
-function swapView(toGame){const version=++viewTransition;const from=isGameView?panel:$('home-panel');const commit=()=>{toGame?activateGameNow():activateHomeNow();const next=toGame?panel:$('home-panel');if(next.animate&&!reduced.matches)next.animate([{opacity:0,transform:'translateY(8px)'},{opacity:1,transform:'translateY(0)'}],{duration:240,easing:'cubic-bezier(.2,.8,.2,1)'});};
- if(toGame===isGameView||!from.animate||reduced.matches){commit();return;}if(!toGame&&state==='running')pauseGame();
- const fade=from.animate([{opacity:1},{opacity:0}],{duration:120,fill:'forwards'});fade.finished.catch(()=>{}).then(()=>{fade.cancel();if(version===viewTransition)commit();});}
+async function swapView(toGame){const version=++viewTransition;const from=isGameView?panel:$('home-panel');if(toGame===isGameView){window.DCMotion?.cancel(from);return;}if(!toGame&&state==='running')pauseGame();const release=window.DCMotion?await window.DCMotion.leave(from,toGame?1:-1):()=>{};if(version!==viewTransition){release();return;}toGame?activateGameNow():activateHomeNow();release();window.DCMotion?.enter(toGame?panel:$('home-panel'),toGame?1:-1);}
 function activateGame(){swapView(true);}
 function activateHome(){swapView(false);}
 $('game-tab').addEventListener('click',activateGame);$('arcade-open').addEventListener('click',activateGame);$('home-tab').addEventListener('click',activateHome);
@@ -1099,6 +1111,26 @@ emit('visit','home');
 window.addEventListener('hashchange',()=>{const p=location.hash.slice(1).split('?')[0]||'home';if(!p.startsWith('admin')&&p!==lastPage){lastPage=p;emit('page',p);}});
 document.addEventListener('click',e=>{const a=e.target.closest('a');if(!a)return;try{const u=new URL(a.href,location.href);if(u.origin===location.origin)return;const h=u.hostname;const target=/steam/.test(h)?'steam':/instagram/.test(h)?'instagram':/t.me|telegram/.test(h)?'telegram':/discord/.test(h)?'discord':/github/.test(h)?'github':'website';emit('click',target);}catch{}});
 if(isCard){document.querySelector('#home-tab')?.addEventListener('click',()=>emit('page','home'));document.querySelector('#game-tab')?.addEventListener('click',()=>emit('page','game'));}
+})();
+</script><script>(()=>{'use strict';
+const reduce=matchMedia('(prefers-reduced-motion: reduce)'),running=new Map(),ease='cubic-bezier(.22,1,.36,1)';
+function play(el,frames,options){if(!el||!el.animate||reduce.matches)return null;running.get(el)?.cancel();const a=el.animate(frames,options);running.set(el,a);a.finished.catch(()=>{}).finally(()=>{if(running.get(el)===a)running.delete(el);});return a;}
+window.DCMotion={
+ async leave(el,direction=1){const opacity=getComputedStyle(el).opacity;const a=play(el,[{opacity,transform:'translateY(0) scale(1)'},{opacity:0,transform:`translateY(${-6*direction}px) scale(.992)`}],{duration:150,easing:'cubic-bezier(.4,0,1,1)',fill:'forwards'});if(a)try{await a.finished;}catch{}return()=>a?.cancel();},
+ enter(el,direction=1){play(el,[{opacity:0,transform:`translateY(${12*direction}px) scale(.992)`},{opacity:1,transform:'translateY(0) scale(1)'}],{duration:420,easing:ease});},
+ cancel(el){running.get(el)?.cancel();}
+};
+// An outline moves between selected navigation items. It never intercepts input.
+const groups=new Map();let scheduled=false;
+function sync(){scheduled=false;for(const selector of ['.top nav','.site-tabs','.admin-tabs'])for(const group of document.querySelectorAll(selector)){
+const active=group.querySelector('[aria-current="page"],[aria-selected="true"],a.active');if(!active||!active.getClientRects().length)continue;
+let state=groups.get(group);if(!state){const marker=document.createElement('span');marker.className='motion-selection';marker.setAttribute('aria-hidden','true');document.body.append(marker);state={marker,rect:null};groups.set(group,state);}
+const r=active.getBoundingClientRect(),m=state.marker;const old=state.rect;m.style.cssText=`left:${r.left}px;top:${r.top}px;width:${r.width}px;height:${r.height}px`;
+if(old&&(old.x!==r.x||old.y!==r.y||old.width!==r.width))play(m,[{transform:`translate(${old.x-r.x}px,${old.y-r.y}px) scale(${old.width/r.width},${old.height/r.height})`},{transform:'translate(0,0) scale(1)'}],{duration:380,easing:ease});state.rect={x:r.x,y:r.y,width:r.width,height:r.height};
+}for(const [g,s]of groups){if(!g.isConnected||!g.getClientRects().length){s.marker.remove();groups.delete(g);}}}
+function schedule(){if(!scheduled){scheduled=true;requestAnimationFrame(sync);}}
+new MutationObserver(records=>{for(const r of records){if(r.type==='attributes'&&r.target.matches?.('dialog,[role="dialog"]')&&!r.target.hidden&&(r.target.tagName!=='DIALOG'||r.target.open))window.DCMotion.enter(r.target.querySelector('.playlist-window,.playlist-modal')||r.target);}schedule();}).observe(document.body,{subtree:true,childList:true,attributes:true,attributeFilter:['aria-current','aria-selected','hidden','open']});
+addEventListener('resize',schedule);addEventListener('scroll',schedule,{passive:true,capture:true});reduce.addEventListener('change',()=>{for(const a of running.values())a.cancel();schedule();});schedule();
 })();
 </script></body>
 </html>
