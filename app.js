@@ -41,24 +41,18 @@ const ACTIVE_MARK='<svg viewBox="0 0 24 24"><path d="M4 10h3v4H4v-4Zm5-4h3v12H9V
 const fmt=v=>Number.isFinite(v)?`${Math.floor(v/60)}:${Math.floor(v%60).toString().padStart(2,'0')}`:'0:00';
 const name=t=>t?.title||'Без названия';
 const by=t=>t?.artist||'PAPACHIZ123';
-const coverOf=t=>{
-  const candidates=[t?.cover,t?.cover_url,t?.coverUrl,t?.thumbnail,t?.thumbnail_url,t?.image,t?.image_url,t?.artwork,t?.photo];
-  const found=candidates.find(v=>typeof v==='string'&&/^https:\/\//i.test(v));
-  return found||'profile.jpg';
-};
+const coverOf=t=>t?.cover&&/^https:\/\//i.test(t.cover)?t.cover:'profile.jpg';
 
 function setRangeFill(el,value,max=1){
   const pct=max>0?Math.max(0,Math.min(100,(value/max)*100)):0;
-  el.style.setProperty('--fill',pct+'%');
+  el.style.setProperty('--range-progress',pct+'%');
 }
 
 function syncPlay(){
   play.innerHTML=audio.paused?PLAY:PAUSE;
   play.title=audio.paused?'Воспроизвести':'Пауза';
   play.setAttribute('aria-label',play.title);
-  const active=!audio.paused&&!audio.ended;
-  eq.classList.toggle('playing',active);
-  cover.classList.toggle('playing',active);
+  eq.classList.toggle('playing',!audio.paused&&!audio.ended);
 }
 
 function syncVolume(){
@@ -83,7 +77,7 @@ function syncRepeat(){
 function paint(t){
   title.textContent=name(t);
   artist.textContent=by(t);
-  cover.src=coverOf(t); cover.onerror=()=>{cover.src='profile.jpg'};
+  cover.src=coverOf(t);
 }
 
 function render(){
@@ -108,7 +102,7 @@ function render(){
 
     const img=document.createElement('img');
     img.className='track-cover';
-    img.src=coverOf(t); img.onerror=()=>{img.src='profile.jpg'};
+    img.src=coverOf(t);
     img.alt='';
     img.loading='lazy';
 
@@ -268,15 +262,23 @@ function animateEq(){
   const bars=eq.querySelectorAll('i');
   if(!audio.paused&&!audio.ended){
     const t=audio.currentTime||0;
-    const vals=[
-      Math.abs(Math.sin(t*6.2)),
-      Math.abs(Math.sin(t*8.1+1.1)),
-      Math.abs(Math.sin(t*5.4+2.2)),
-      Math.abs(Math.sin(t*7.3+3.4))
+    const wave=[
+      Math.abs(Math.sin(t*8.3)),
+      Math.abs(Math.sin(t*6.1+1.2)),
+      Math.abs(Math.sin(t*9.7+2.1)),
+      Math.abs(Math.sin(t*5.2+2.8)),
+      Math.abs(Math.sin(t*7.4+4.0))
     ];
-    bars.forEach((bar,i)=>bar.style.height=(3+Math.round(vals[i]*9))+'px');
+    bars.forEach((bar,i)=>{
+      const h=5+Math.round(wave[i]*19);
+      bar.style.height=h+'px';
+      bar.style.transform=`translateY(${Math.round((12-h)/8)}px)`;
+    });
   }else{
-    bars.forEach(bar=>bar.style.height='2px');
+    bars.forEach(bar=>{
+      bar.style.height='2px';
+      bar.style.transform='none';
+    });
   }
   requestAnimationFrame(animateEq);
 }
