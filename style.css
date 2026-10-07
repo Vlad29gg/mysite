@@ -326,3 +326,67 @@ h1 span{
 .songs-pill{border-color:rgba(209,111,243,.28);background:rgba(144,55,176,.11)}
 .songs-pill:hover{background:rgba(155,63,190,.18);border-color:rgba(221,130,251,.42)}
 .playlist-card{border-color:rgba(211,118,245,.31);background:linear-gradient(180deg,#120b17,#0a0710);box-shadow:0 26px 80px rgba(0,0,0,.64),0 0 46px rgba(155,58,220,.10)}
+
+/* MOLVIQ — music player alignment fix.
+   Keeps the original look, but gives the volume block and Songs button
+   their own space so they never collide on desktop/short laptop screens. */
+@media (min-width:761px){
+  .musicbar{
+    grid-template-columns:132px 72px minmax(150px,1fr) 205px minmax(260px,285px);
+    column-gap:12px;
+  }
+  .right-controls{
+    width:100%;
+    min-width:0;
+    display:grid;
+    grid-template-columns:minmax(135px,1fr) auto;
+    align-items:center;
+    justify-content:stretch;
+    gap:10px;
+  }
+  .volume-control{
+    width:100%;
+    min-width:0;
+    grid-template-columns:30px minmax(56px,1fr) auto;
+    gap:5px;
+    padding:4px 6px;
+  }
+  .volume-control>span{min-width:27px}
+  .songs-pill{
+    flex:0 0 auto;
+    white-space:nowrap;
+    justify-content:center;
+  }
+}
+
+@media (max-height:780px) and (min-width:761px){
+  .musicbar{
+    grid-template-columns:120px 64px minmax(120px,1fr) 185px minmax(250px,270px);
+    column-gap:10px;
+    padding-left:12px;
+    padding-right:12px;
+  }
+  .right-controls{gap:9px}
+}
+
+@media (min-width:761px) and (max-width:920px){
+  .musicbar{
+    grid-template-columns:104px 60px minmax(95px,1fr) 170px minmax(220px,238px);
+    column-gap:8px;
+    padding-left:10px;
+    padding-right:10px;
+  }
+  .music-brand{grid-template-columns:32px minmax(0,1fr);column-gap:7px}
+  .music-app-icon{width:31px;height:31px}
+  .music-brand strong{font-size:11px}
+  .music-brand small{font-size:7px}
+  .disc-wrap{width:58px;height:58px}
+  .transport{gap:2px}
+  .icon-btn{width:30px;height:30px}
+  .icon-btn.tiny{width:27px;height:27px}
+  .play-main{width:43px;height:43px}
+  .right-controls{gap:7px;grid-template-columns:minmax(112px,1fr) auto}
+  .volume-control{grid-template-columns:28px minmax(42px,1fr);gap:4px;padding:4px 5px}
+  .volume-control>span{display:none}
+  .songs-pill{padding:0 9px}
+}
